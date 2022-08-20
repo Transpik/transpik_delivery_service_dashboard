@@ -11,19 +11,19 @@ function ViewIncomingOrders() {
           <div className="md:w-96 flex items-center">
             <Link
               to="#"
-              className="text-base bg-orange bg-opacity-80 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange font-medium mr-10 leading-4 text-white"
+              className="sub-menu-active"
             >
               Incoming
             </Link>
             <Link
               to="#"
-              className="text-base bg-orange bg-opacity-20 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange hover:bg-opacity-40 font-medium mr-10 leading-4 cursor-pointer text-black"
+              className="sub-menu-inactive"
             >
               Processing
             </Link>
             <Link
               to="#"
-              className="text-base bg-orange bg-opacity-20 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange hover:bg-opacity-40 font-medium mr-10 leading-4 cursor-pointer text-black"
+              className="sub-menu-inactive"
             >
               Statistics
             </Link>
@@ -86,7 +86,7 @@ function ViewIncomingOrders() {
                       </td>
                       <td class="pl-2 pr-4 py-6">
                         <div className="flex justify-center items-center w-full">
-                          <div className="w-24 text-center text-base font-semibold leading-none text-white py-2 px-4 bg-green bg-opacity-60 rounded">
+                          <div className="status-cold">
                             Paid
                           </div>
                         </div>
@@ -122,7 +122,7 @@ function ViewIncomingOrders() {
                       </td>
                       <td class="pl-2 pr-4 py-6">
                         <div className="flex justify-center items-center w-full">
-                          <div className="w-24 text-center text-base font-semibold leading-none text-white py-2 px-4 bg-green bg-opacity-60 rounded">
+                          <div className="status-cold">
                             Paid
                           </div>
                         </div>
@@ -158,7 +158,7 @@ function ViewIncomingOrders() {
                       </td>
                       <td class="pl-2 pr-4 py-6">
                         <div className="flex justify-center items-center w-full">
-                          <div className="w-24 text-center text-base font-semibold leading-none text-white py-2 px-4 bg-red-300 rounded">
+                          <div className="status-hot">
                             Unpaid
                           </div>
                         </div>
@@ -180,10 +180,10 @@ function ViewIncomingOrders() {
 
               {/* <!-- Buttons --> */}
               <div className="flex justify-start items-center w-full mt-4">
-                <button className="mt-4 mr-2 text-base font-semibold leading-none text-white py-4 px-10 bg-red-500 rounded hover:bg-red-600 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:outline-none">
+                <button className="btn-primary">
                   Move to Processing
                 </button>
-                <button className="mt-4 text-base font-semibold leading-none text-white py-4 px-10 bg-green rounded hover:bg-dark_green focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:outline-none">
+                <button className="btn-secondary">
                   Print List
                 </button>
               </div>

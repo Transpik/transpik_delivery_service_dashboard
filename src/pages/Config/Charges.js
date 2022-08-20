@@ -24,7 +24,7 @@ function ViewChargesPage() {
             <p
               tabIndex={0}
               role="button"
-              className="text-base bg-orange bg-opacity-80 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange font-medium mr-10 leading-4 text-white"
+              className="sub-menu-active"
             >
               Profile
             </p>
