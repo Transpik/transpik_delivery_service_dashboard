@@ -24,7 +24,7 @@ function AccountProfilePage() {
         <div className="absolute top-40 lg:top-32 bg-white shadow rounded py-12 lg:px-28 px-8">
           <div className="flex items-center">
             <Link
-              to="/"
+              to="profile"
               className="sub-menu-active"
             >
               Profile
@@ -36,13 +36,13 @@ function AccountProfilePage() {
               API
             </Link>
             <Link
-              to="/"
+              to="#"
               className="sub-menu-inactive"
             >
               Billing
             </Link>
             <Link
-              to="/"
+              to="#"
               className="sub-menu-inactive"
             >
               Marketplace

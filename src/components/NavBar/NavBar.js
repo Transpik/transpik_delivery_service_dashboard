@@ -14,7 +14,7 @@ function NavBar() {
             </div>
             <div className="hidden lg:flex items-center">
               <Link
-                to="/"
+                to="orders"
                 className="text-base focus:outline-none focus:ring-1 p-2 focus:ring-offset-1 focus:ring-white font-medium mr-10 leading-4 text-white underline decoration-white decoration-solid decoration-2 underline-offset-8 px-3 py-2"
               >
                 Orders

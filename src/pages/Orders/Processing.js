@@ -10,19 +10,19 @@ function ViewProcessingOrders() {
         <div className="absolute top-40 lg:top-32 bg-white shadow rounded py-12 lg:px-28 px-8">
           <div className="md:w-96 flex items-center">
             <Link
-              to="#"
+              to="incoming"
               className="sub-menu-inactive"
             >
               Incoming
             </Link>
             <Link
-              to="#"
+              to="processing"
               className="sub-menu-active"
             >
               Processing
             </Link>
             <Link
-              to="#"
+              to="delivering"
               className="sub-menu-inactive"
             >
               Statistics

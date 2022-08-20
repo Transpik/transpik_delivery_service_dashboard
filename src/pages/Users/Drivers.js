@@ -27,74 +27,74 @@ function ViewDrivers() {
           </div>
 
           {/* Table start*/}
-          <div class="flex flex-col justify-center h-full mt-8">
-            <div class="w-full lg:max-w-4xl mx-auto bg-white">
-              <div class="overflow-x-auto py-3">
-                <table class="table-auto w-full">
-                  <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+          <div className="flex flex-col justify-center h-full mt-8">
+            <div className="w-full lg:max-w-4xl mx-auto bg-white">
+              <div className="overflow-x-auto py-3">
+                <table className="table-auto w-full">
+                  <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                     <tr>
-                      <th class="p-2">
-                        <div class="font-semibold text-left">
+                      <th className="p-2">
+                        <div className="font-semibold text-left">
                           Name with Initials
                         </div>
                       </th>
-                      <th class="p-2">
-                        <div class="font-semibold text-left">Telephone</div>
+                      <th className="p-2">
+                        <div className="font-semibold text-left">Telephone</div>
                       </th>
-                      <th class="p-2">
-                        <div class="font-semibold text-left">Email</div>
+                      <th className="p-2">
+                        <div className="font-semibold text-left">Email</div>
                       </th>
-                      <th class="p-2">
-                        <div class="font-semibold text-left">License ID</div>
+                      <th className="p-2">
+                        <div className="font-semibold text-left">License ID</div>
                       </th>
-                      <th class="p-2">
-                        <div class="font-semibold text-left">Status</div>
+                      <th className="p-2">
+                        <div className="font-semibold text-left">Status</div>
                       </th>
-                      <th class="p-2">
-                        <div class="font-semibold text-left">States</div>
+                      <th className="p-2">
+                        <div className="font-semibold text-left">States</div>
                       </th>
-                      <th class="p-2">
-                        <div class="font-semibold text-center">Action</div>
+                      <th className="p-2">
+                        <div className="font-semibold text-center">Action</div>
                       </th>
                     </tr>
                   </thead>
 
-                  <tbody class="text-sm divide-y divide-gray-100">
+                  <tbody className="text-sm divide-y divide-gray-100">
                     <tr>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="font-medium text-gray-800">
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="font-medium text-gray-800">
                           L.A. N. Thushara
                         </div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="font-medium text-gray-800">
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="font-medium text-gray-800">
                           +94 765869321
                         </div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="font-medium text-gray-800">
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="font-medium text-gray-800">
                           nuwanthushara@gmail.com
                         </div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="font-medium text-gray-800">18569325553</div>
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="font-medium text-gray-800">18569325553</div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
+                      <td className="pl-2 pr-4 py-6">
                         <div className="flex justify-center items-center w-full">
                           <div className="sub-menu-active">
                             Active
                           </div>
                         </div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="text-left font-medium text-green-500">
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="text-left font-medium text-green-500">
                           <button>
                             <ViewListRoundedIcon className="text-base text-gray-600" />
                           </button>
                         </div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="flex justify-center">
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="flex justify-center">
                           <button>
                             <BorderColorRoundedIcon className="text-base mx-1 text-gray-600" />
                           </button>
@@ -106,40 +106,40 @@ function ViewDrivers() {
                     </tr>
 
                     <tr>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="font-medium text-gray-800">
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="font-medium text-gray-800">
                           L.A. N. Thushara
                         </div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="font-medium text-gray-800">
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="font-medium text-gray-800">
                           +94 765869321
                         </div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="font-medium text-gray-800">
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="font-medium text-gray-800">
                           nuwanthushara@gmail.com
                         </div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="font-medium text-gray-800">18569325553</div>
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="font-medium text-gray-800">18569325553</div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
+                      <td className="pl-2 pr-4 py-6">
                         <div className="flex justify-center items-center w-full">
                           <div className="sub-menu-active">
                             Active
                           </div>
                         </div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="text-left font-medium text-green-500">
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="text-left font-medium text-green-500">
                           <button>
                             <ViewListRoundedIcon className="text-base text-gray-600" />
                           </button>
                         </div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="flex justify-center">
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="flex justify-center">
                           <button>
                             <BorderColorRoundedIcon className="text-base mx-1 text-gray-600" />
                           </button>
@@ -151,40 +151,40 @@ function ViewDrivers() {
                     </tr>
 
                     <tr>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="font-medium text-gray-800">
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="font-medium text-gray-800">
                           L.A. N. Thushara
                         </div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="font-medium text-gray-800">
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="font-medium text-gray-800">
                           +94 765869321
                         </div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="font-medium text-gray-800">
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="font-medium text-gray-800">
                           nuwanthushara@gmail.com
                         </div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="font-medium text-gray-800">18569325553</div>
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="font-medium text-gray-800">18569325553</div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
+                      <td className="pl-2 pr-4 py-6">
                         <div className="flex justify-center items-center w-full">
                           <div className="sub-menu-inactive">
                             Inactive
                           </div>
                         </div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="text-left font-medium text-green-500">
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="text-left font-medium text-green-500">
                           <button>
                             <ViewListRoundedIcon className="text-base text-gray-600" />
                           </button>
                         </div>
                       </td>
-                      <td class="pl-2 pr-4 py-6">
-                        <div class="flex justify-center">
+                      <td className="pl-2 pr-4 py-6">
+                        <div className="flex justify-center">
                           <button>
                             <BorderColorRoundedIcon className="text-base mx-1 text-gray-600" />
                           </button>
@@ -205,11 +205,11 @@ function ViewDrivers() {
                 </button>
               </div>
 
-              <div class="flex justify-end">
-                {/* <!-- send this data to backend (note: use class 'hidden' to hide this input) --> */}
+              <div className="flex justify-end">
+                {/* <!-- send this data to backend (note: use className 'hidden' to hide this input) --> */}
                 <input
                   type="hidden"
-                  class="border border-black bg-gray-50"
+                  className="border border-black bg-gray-50"
                   x-model="selected"
                 />
               </div>
