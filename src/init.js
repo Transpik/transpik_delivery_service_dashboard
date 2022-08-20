@@ -17,16 +17,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Routes>
       <Route path="/" element={<UserRoutes />}>
         <Route index element={<ViewIncomingOrders />} />
-        <Route path="users" element={<ViewDrivers />}></Route>
-        <Route path="charges" element={<ViewChargesPage />}></Route>
+        <Route path="users" element={<ViewDrivers />} />
+        <Route path="charges" element={<ViewChargesPage />} />
         <Route path="account/" element={<AccountProfilePage />}>
-          <Route path="profile" element={<AccountProfilePage />}></Route>
-          <Route path="api" element={<AccountAPIPage />}></Route>
+          <Route path="profile" element={<AccountProfilePage />} />
+          <Route path="api" element={<AccountAPIPage />} />
         </Route>
         <Route path="orders/" element={<ViewIncomingOrders />}>
-          <Route path="incoming" element={<ViewIncomingOrders />}></Route>
-          <Route path="processing" element={<ViewProcessingOrders />}></Route>
-          <Route path="delivering" element={<ViewDeliveringOrders />}></Route>
+          <Route path="incoming" element={<ViewIncomingOrders />} />
+          <Route path="processing" element={<ViewProcessingOrders />} />
+          <Route path="delivering" element={<ViewDeliveringOrders />} />
         </Route>
       </Route>
     </Routes>
