@@ -84,7 +84,7 @@ function AccountAPIPage() {
           </div>
 
           <div className="flex justify-end items-center w-full mt-4">
-            <button className="mt-4 text-base font-semibold leading-none text-white py-4 px-10 bg-green rounded hover:bg-dark_green focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:outline-none">
+            <button className="btn-secondary">
               Generate
             </button>
           </div>
