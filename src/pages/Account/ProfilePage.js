@@ -79,7 +79,7 @@ function AccountProfilePage() {
                 tabIndex={0}
                 arial-label="Please input email address"
                 type="name"
-                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
+                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input email address"
               />
             </div>
@@ -93,7 +93,7 @@ function AccountProfilePage() {
                 tabIndex={0}
                 arial-label="Please input password"
                 type="password"
-                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
+                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input password"
               />
             </div>
@@ -105,14 +105,14 @@ function AccountProfilePage() {
                 tabIndex={0}
                 arial-label="Please input re-input password"
                 type="password"
-                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
+                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input re-input password"
               />
             </div>
           </div>
 
           <div className="flex items-center w-full">
-            <button className="mt-4 text-base font-semibold leading-none text-white py-4 px-10 bg-green rounded hover:bg-dark_green focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:outline-none">
+            <button className="mt-4 text-base font-semibold leading-none text-white py-4 px-10 bg-green rounded hover:bg-dark_green focus:ring-2 focus:ring-offset-2 focus:ring-orange focus:outline-none">
               Change Password
             </button>
           </div>
@@ -125,7 +125,7 @@ function AccountProfilePage() {
                 tabIndex={0}
                 arial-label="Please input business name"
                 type="name"
-                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
+                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input business name"
               />
             </div>
@@ -137,7 +137,7 @@ function AccountProfilePage() {
                 tabIndex={0}
                 arial-label="Please input registration number"
                 type="name"
-                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
+                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input registration number"
               />
             </div>
@@ -151,7 +151,7 @@ function AccountProfilePage() {
                 tabIndex={0}
                 arial-label="Please input address"
                 type="name"
-                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
+                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input address"
               />
             </div>
@@ -160,11 +160,13 @@ function AccountProfilePage() {
                 Registration Certificate
               </label>
               <input
-                tabIndex={0}
-                arial-label="Please input registration certificate"
                 type="file"
-                className="text-base leading-none text-gray-900 py-3 pr-3 focus:oultine-none focus:border-orange mt-4"
-                placeholder="Please input registration certificate"
+                className="block w-full text-base leading-none text-gray-900 mt-4
+                file:mr-4 file:py-2 file:px-4
+                file:rounded-full file:border-0
+                file:text-sm file:font-semibold
+                file:bg-orange file:bg-opacity-10 file:text-orange
+                hover:file:bg-opacity-20 file:cursor-pointer"
               />
             </div>
           </div>
@@ -176,7 +178,7 @@ function AccountProfilePage() {
               <select
                 value={District}
                 onChange={distChange}
-                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
+                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
               >
                 <option value="None">None</option>
                 <option value="Jaffna">Jaffna</option>
@@ -191,7 +193,7 @@ function AccountProfilePage() {
               <select
                 value={City}
                 onChange={cityChange}
-                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
+                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
               >
                 <option value="None">None</option>
                 <option value="Matara">Matara</option>
@@ -207,7 +209,7 @@ function AccountProfilePage() {
               <select
                 value={Province}
                 onChange={provChange}
-                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
+                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
               >
                 <option value="None">None</option>
                 <option value="Sourthern">Sourthern</option>
@@ -222,7 +224,7 @@ function AccountProfilePage() {
                 tabIndex={0}
                 arial-label="Please input postal code"
                 type="name"
-                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200 placeholder-gray-100"
+                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input postal code"
               />
             </div>
@@ -235,7 +237,7 @@ function AccountProfilePage() {
             to that information.
           </p>
           <div className="flex items-center w-full">
-            <button className="mt-4 text-base font-semibold leading-none text-white py-4 px-10 bg-green rounded hover:bg-dark_green focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:outline-none">
+            <button className="mt-4 text-base font-semibold leading-none text-white py-4 px-10 bg-green rounded hover:bg-dark_green focus:ring-2 focus:ring-offset-2 focus:ring-orange focus:outline-none">
               Update and Verify
             </button>
           </div>
