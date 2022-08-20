@@ -9,16 +9,25 @@
   .btn-secondary {
     @apply mt-4 mr-2 text-base font-semibold leading-none text-white py-4 px-10 bg-green rounded hover:bg-dark_green focus:ring-2 focus:ring-offset-2 focus:ring-offset-lime-600 focus:outline-none;
   }
+  .btn {
+    @apply text-base font-medium leading-none text-orange py-4 px-5 bg-white rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white hover:bg-gray-300
+  }
   .status-hot {
     @apply w-24 text-center text-base font-semibold leading-none text-white py-2 px-4 bg-red-300 rounded;
   }
   .status-cold {
     @apply w-24 text-center text-base font-semibold leading-none text-white py-2 px-4 bg-green bg-opacity-60 rounded;
   }
+  .menu-active {
+    @apply text-base focus:outline-none focus:ring-1 p-2 focus:ring-offset-1 focus:ring-white font-medium mr-10 leading-4 text-white underline decoration-white decoration-solid decoration-2 underline-offset-8 px-3 py-2;
+  }
+  .menu-inactive {
+    @apply text-base focus:outline-none focus:ring-1 p-2 focus:ring-offset-1 focus:ring-white hover:text-gray-300 font-medium mr-10 leading-4 cursor-pointer text-white;
+  }
   .sub-menu-active {
-    @apply text-base bg-orange bg-opacity-80 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange font-medium mr-10 leading-4 text-white cursor-default
+    @apply text-base bg-orange bg-opacity-80 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange font-medium mr-10 leading-4 text-white cursor-default;
   }
   .sub-menu-inactive {
-    @apply text-base bg-orange bg-opacity-20 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange hover:bg-opacity-40 font-medium mr-10 leading-4 cursor-pointer text-black
+    @apply text-base bg-orange bg-opacity-20 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange hover:bg-opacity-40 font-medium mr-10 leading-4 cursor-pointer text-black;
   }
 }

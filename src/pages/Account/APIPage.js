@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
 
 function AccountAPIPage() {
@@ -44,7 +45,7 @@ function AccountAPIPage() {
               <div className="flex items-center">
                 <input
                   tabIndex={0}
-                  arial-label="Please input email address"
+                  aria-label="Please input email address"
                   type="text"
                   className="w-full text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200 place-content-end placeholder:justify-items-end"
                 />
@@ -59,7 +60,7 @@ function AccountAPIPage() {
               </label>
               <input
                 tabIndex={0}
-                arial-label="Please input password"
+                aria-label="Please input password"
                 type="password"
                 className="text-xs leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Paste current API key here"

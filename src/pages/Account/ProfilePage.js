@@ -71,7 +71,7 @@ function AccountProfilePage() {
               </label>
               <input
                 tabIndex={0}
-                arial-label="Please input email address"
+                aria-label="Please input email address"
                 type="name"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input email address"
@@ -85,7 +85,7 @@ function AccountProfilePage() {
               </label>
               <input
                 tabIndex={0}
-                arial-label="Please input password"
+                aria-label="Please input password"
                 type="password"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input password"
@@ -97,7 +97,7 @@ function AccountProfilePage() {
               </label>
               <input
                 tabIndex={0}
-                arial-label="Please input re-input password"
+                aria-label="Please input re-input password"
                 type="password"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input re-input password"
@@ -117,7 +117,7 @@ function AccountProfilePage() {
               </label>
               <input
                 tabIndex={0}
-                arial-label="Please input business name"
+                aria-label="Please input business name"
                 type="name"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input business name"
@@ -129,7 +129,7 @@ function AccountProfilePage() {
               </label>
               <input
                 tabIndex={0}
-                arial-label="Please input registration number"
+                aria-label="Please input registration number"
                 type="name"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input registration number"
@@ -143,7 +143,7 @@ function AccountProfilePage() {
               </label>
               <input
                 tabIndex={0}
-                arial-label="Please input address"
+                aria-label="Please input address"
                 type="name"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input address"
@@ -216,7 +216,7 @@ function AccountProfilePage() {
               </label>
               <input
                 tabIndex={0}
-                arial-label="Please input postal code"
+                aria-label="Please input postal code"
                 type="name"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input postal code"
