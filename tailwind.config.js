@@ -12,6 +12,7 @@ module.exports = {
         "light-orange": "#FFF0E9", // light orange color for backgrounds
         "secondary-light_orange": "#FFF9F6", // color for linear gradient
         "green": "#5BAB5E", // green color for indicators and etc.
+        "dark_green": "#478c4a" //dark green for button hovers
       },
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],
