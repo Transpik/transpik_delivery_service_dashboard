@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 
 function ViewChargesPage() {
   const [District, setDistrict] = useState("None");

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
+import { Link } from "react-router-dom";
+import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 
 function AccountProfilePage() {
   const [District, setDistrict] = useState("None");
@@ -22,34 +23,30 @@ function AccountProfilePage() {
       <div className="w-full flex items-center justify-center my-12">
         <div className="absolute top-40 lg:top-32 bg-white shadow rounded py-12 lg:px-28 px-8">
           <div className="flex items-center">
-            <p
-              tabIndex={0}
-              role="button"
+            <Link
+              to="/"
               className="text-base bg-orange bg-opacity-80 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange font-medium mr-10 leading-4 text-white"
             >
               Profile
-            </p>
-            <p
-              tabIndex={0}
-              role="button"
+            </Link>
+            <Link
+              to="api"
               className="text-base bg-orange bg-opacity-20 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange hover:bg-opacity-40 font-medium mr-10 leading-4 cursor-pointer text-black"
             >
               API
-            </p>
-            <p
-              tabIndex={0}
-              role="button"
+            </Link>
+            <Link
+              to="/"
               className="text-base bg-orange bg-opacity-20 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange hover:bg-opacity-40 font-medium mr-10 leading-4 cursor-pointer text-black"
             >
               Billing
-            </p>
-            <p
-              tabIndex={0}
-              role="button"
+            </Link>
+            <Link
+              to="/"
               className="text-base bg-orange bg-opacity-20 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange hover:bg-opacity-40 font-medium mr-10 leading-4 cursor-pointer text-black"
             >
               Marketplace
-            </p>
+            </Link>
           </div>
           <div className="flex items-end mt-8">
             <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">
