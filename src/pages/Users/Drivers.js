@@ -1,6 +1,7 @@
 import React from "react";
-import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
-import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
+import BorderColorRoundedIcon from "@mui/icons-material/BorderColorRounded";
+import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
+import ViewListRoundedIcon from "@mui/icons-material/ViewListRounded";
 
 function ViewDrivers() {
   return (
@@ -25,7 +26,7 @@ function ViewDrivers() {
             </p>
           </div>
 
-          {/* Table */}
+          {/* Table start*/}
           <div class="flex flex-col justify-center h-full mt-8">
             <div class="w-full lg:max-w-4xl mx-auto bg-white">
               <div class="overflow-x-auto py-3">
@@ -87,16 +88,18 @@ function ViewDrivers() {
                       </td>
                       <td class="pl-2 pr-4 py-6">
                         <div class="text-left font-medium text-green-500">
-                          Icon
+                          <button>
+                            <ViewListRoundedIcon className="text-base text-gray-600" />
+                          </button>
                         </div>
                       </td>
                       <td class="pl-2 pr-4 py-6">
                         <div class="flex justify-center">
-                        <button>
-                            <BorderColorRoundedIcon className="text-base mx-1" />
+                          <button>
+                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-600" />
                           </button>
                           <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1" />
+                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-600" />
                           </button>
                         </div>
                       </td>
@@ -130,16 +133,18 @@ function ViewDrivers() {
                       </td>
                       <td class="pl-2 pr-4 py-6">
                         <div class="text-left font-medium text-green-500">
-                          Icon
+                          <button>
+                            <ViewListRoundedIcon className="text-base text-gray-600" />
+                          </button>
                         </div>
                       </td>
                       <td class="pl-2 pr-4 py-6">
                         <div class="flex justify-center">
                           <button>
-                            <BorderColorRoundedIcon className="text-base mx-1" />
+                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-600" />
                           </button>
                           <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1" />
+                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-600" />
                           </button>
                         </div>
                       </td>
@@ -173,16 +178,18 @@ function ViewDrivers() {
                       </td>
                       <td class="pl-2 pr-4 py-6">
                         <div class="text-left font-medium text-green-500">
-                          Icon
+                          <button>
+                            <ViewListRoundedIcon className="text-base text-gray-600" />
+                          </button>
                         </div>
                       </td>
                       <td class="pl-2 pr-4 py-6">
                         <div class="flex justify-center">
-                        <button>
-                            <BorderColorRoundedIcon className="text-base mx-1" />
+                          <button>
+                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-600" />
                           </button>
                           <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1" />
+                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-600" />
                           </button>
                         </div>
                       </td>
