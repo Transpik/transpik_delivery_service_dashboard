@@ -7,34 +7,18 @@ function AccountAPIPage() {
       <div className="w-full flex items-center justify-center my-12">
         <div className="absolute top-40 lg:top-32 bg-white shadow rounded py-12 lg:px-28 px-8">
           <div className="flex items-center">
-            <p
-              tabIndex={0}
-              role="button"
-              className="text-base bg-orange bg-opacity-20 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange hover:bg-opacity-40 font-medium mr-10 leading-4 cursor-pointer text-black"
-            >
+            <Link to="profile" className="sub-menu-inactive">
               Profile
-            </p>
-            <p
-              tabIndex={0}
-              role="button"
-              className="text-base bg-orange bg-opacity-80 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange font-medium mr-10 leading-4 text-white"
-            >
+            </Link>
+            <Link to="api" className="sub-menu-active">
               API
-            </p>
-            <p
-              tabIndex={0}
-              role="button"
-              className="text-base bg-orange bg-opacity-20 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange hover:bg-opacity-40 font-medium mr-10 leading-4 cursor-pointer text-black"
-            >
+            </Link>
+            <Link to="#" className="sub-menu-inactive">
               Billing
-            </p>
-            <p
-              tabIndex={0}
-              role="button"
-              className="text-base bg-orange bg-opacity-20 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange hover:bg-opacity-40 font-medium mr-10 leading-4 cursor-pointer text-black"
-            >
+            </Link>
+            <Link to="#" className="sub-menu-inactive">
               Marketplace
-            </p>
+            </Link>
           </div>
           <div className="flex items-end mt-8">
             <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">
@@ -58,13 +42,13 @@ function AccountAPIPage() {
                 </div>
               </label>
               <div className="flex items-center">
-              <input
-                tabIndex={0}
-                arial-label="Please input email address"
-                type="text"
-                className="w-full text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200 place-content-end placeholder:justify-items-end"
-              />
-              <ContentCopyRoundedIcon className="text-gray-900 cursor-pointer ml-2" />
+                <input
+                  tabIndex={0}
+                  arial-label="Please input email address"
+                  type="text"
+                  className="w-full text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200 place-content-end placeholder:justify-items-end"
+                />
+                <ContentCopyRoundedIcon className="text-gray-900 cursor-pointer ml-2" />
               </div>
             </div>
           </div>
@@ -84,9 +68,7 @@ function AccountAPIPage() {
           </div>
 
           <div className="flex justify-end items-center w-full mt-4">
-            <button className="mt-4 text-base font-semibold leading-none text-white py-4 px-10 bg-green rounded hover:bg-dark_green focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:outline-none">
-              Generate
-            </button>
+            <button className="btn-secondary">Generate</button>
           </div>
         </div>
       </div>
