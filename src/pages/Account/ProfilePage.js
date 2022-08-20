@@ -1,6 +1,6 @@
 import React from "react";
 // import {AiOutlineClose} from "@react-icons/all-files/AiOutlineClose";
-import { FaFacebookF } from "@react-icons/all-files/fa/FaFacebookF";
+// import { FaFacebookF } from "@react-icons/all-files/fa/FaFacebookF";
 
 class AccountProfilePage extends React.Component {
   constructor(props) {
@@ -56,7 +56,7 @@ class AccountProfilePage extends React.Component {
                 the below form to be a verified profile.
               </p>
               {/* <AiOutlineClose /> */}
-              <FaFacebookF className="text-black text-lg" />
+              {/* <FaFacebookF className="text-black text-lg" /> */}
             </div>
 
             <div className="md:flex items-center mt-8">
