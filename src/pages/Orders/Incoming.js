@@ -187,15 +187,6 @@ function ViewIncomingOrders() {
                   Print List
                 </button>
               </div>
-
-              <div className="flex justify-end">
-                {/* <!-- send this data to backend (note: use className 'hidden' to hide this input) --> */}
-                <input
-                  type="hidden"
-                  className="border border-black bg-gray-50"
-                  x-model="selected"
-                />
-              </div>
             </div>
           </div>
         </div>

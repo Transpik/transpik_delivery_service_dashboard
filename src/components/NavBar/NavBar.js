@@ -15,29 +15,29 @@ function NavBar() {
             <div className="hidden lg:flex items-center">
               <Link
                 to="orders"
-                className="text-base focus:outline-none focus:ring-1 p-2 focus:ring-offset-1 focus:ring-white font-medium mr-10 leading-4 text-white underline decoration-white decoration-solid decoration-2 underline-offset-8 px-3 py-2"
+                className="menu-inactive"
               >
                 Orders
               </Link>
               <Link
                 to="account"
-                className="text-base focus:outline-none focus:ring-1 p-2 focus:ring-offset-1 focus:ring-white hover:text-gray-300 font-medium mr-10 leading-4 cursor-pointer text-white"
+                className="menu-inactive"
               >
                 Account
               </Link>
               <Link
                 to="users"
-                className="text-base focus:outline-none focus:ring-1 p-2 focus:ring-offset-1 focus:ring-white hover:text-gray-300 font-medium mr-10 leading-4 cursor-pointer text-white"
+                className="menu-inactive"
               >
                 Users
               </Link>
               <Link
                 to="charges"
-                className="text-base focus:outline-none focus:ring-1 p-2 focus:ring-offset-1 focus:ring-white hover:text-gray-300 font-medium mr-10 leading-4 cursor-pointer text-white"
+                className="menu-inactive"
               >
                 Config
               </Link>
-              <button className="text-base font-medium leading-none text-orange py-4 px-5 bg-white rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white hover:bg-gray-300">
+              <button className="btn">
                 Log out
               </button>
             </div>
