@@ -1,8 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import ReactDOM from "react-dom/client";
-// import {AiOutlineClose} from "@react-icons/all-files/AiOutlineClose";
-// import { FaFacebookF } from "@react-icons/all-files/fa/FaFacebookF";
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 
 function AccountProfilePage() {
