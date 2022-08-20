@@ -13,7 +13,7 @@ class NavBar extends React.Component {
           <div className="md:px-20 px-4 py-8">
             <div className="flex items-center justify-between">
               <div>
-                <img src={Logo} className="h-20"></img>
+                <img src={Logo} alt="company logo" className="h-20"></img>
                 <p className="text-white">Unverified</p>
               </div>
               <div className="hidden lg:flex items-center">
