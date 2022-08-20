@@ -1,7 +1,5 @@
 import React from "react";
-import { useState } from "react";
-import ReactDOM from "react-dom/client";
-// import {MdContentCopy} from "@react/icons/MdContentCopy";
+import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
 
 function AccountAPIPage() {
   return (
@@ -51,17 +49,23 @@ function AccountAPIPage() {
             <div className="md:w-full flex flex-col md:mt-0 mt-4">
               <label className="">
                 <div className="flex items-end justify-between">
-                  <p className="text-base font-semibold leading-none text-gray-800">Current API Key</p>
-                  <p className="text-xs font-light leading-none text-gray-600">Valid until 21/10/2022</p>
+                  <p className="text-base font-semibold leading-none text-gray-800">
+                    Current API Key
+                  </p>
+                  <p className="text-xs font-light leading-none text-gray-600">
+                    Valid until 21/10/2022
+                  </p>
                 </div>
               </label>
+              <div className="flex items-center">
               <input
                 tabIndex={0}
                 arial-label="Please input email address"
-                type="name"
-                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200 place-content-end placeholder:justify-items-end"
-                // placeholder={<MdContentCopy />}
+                type="text"
+                className="w-full text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200 place-content-end placeholder:justify-items-end"
               />
+              <ContentCopyRoundedIcon className="text-gray-900 cursor-pointer ml-2" />
+              </div>
             </div>
           </div>
           <div className="md:flex items-center mt-4">

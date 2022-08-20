@@ -3,6 +3,7 @@ import { useState } from "react";
 import ReactDOM from "react-dom/client";
 // import {AiOutlineClose} from "@react-icons/all-files/AiOutlineClose";
 // import { FaFacebookF } from "@react-icons/all-files/fa/FaFacebookF";
+import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 
 function AccountProfilePage() {
   const [District, setDistrict] = useState("None");
@@ -61,13 +62,12 @@ function AccountProfilePage() {
               Profile
             </p>
           </div>
-          <div className="mt-4 bg-orange bg-opacity-20 px-4 py-8 rounded">
-            <p className="text-red-400">
+          <div className="mt-4 bg-orange bg-opacity-20 px-4 py-8 rounded flex justify-between align-top">
+            <p className="text-red-400 w-4/5">
               Your profile is not a verified profile. Please fill and submit the
               below form to be a verified profile.
             </p>
-            {/* <AiOutlineClose /> */}
-            {/* <FaFacebookF className="text-black text-lg" /> */}
+            <InfoRoundedIcon className="text-sm text-red-400 cursor-pointer" />
           </div>
 
           <div className="md:flex items-center mt-8">
