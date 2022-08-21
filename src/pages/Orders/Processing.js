@@ -6,8 +6,8 @@ import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 function ViewProcessingOrders() {
   return (
     <div>
-      <div className="w-full flex items-center justify-center my-12">
-        <div className="absolute top-40 lg:top-32 bg-white shadow rounded py-12 lg:px-28 px-8">
+      <div className="container-position">
+        <div className="container-style">
           <div className="md:w-96 flex items-center">
             <Link to="/orders/incoming" className="sub-menu-inactive">
               Incoming

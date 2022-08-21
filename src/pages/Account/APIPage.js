@@ -5,8 +5,8 @@ import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
 function AccountAPIPage() {
   return (
     <div>
-      <div className="w-full flex items-center justify-center my-12">
-        <div className="absolute top-40 lg:top-32 bg-white shadow rounded py-12 lg:px-28 px-8">
+      <div className="container-position">
+        <div className="container-style">
           <div className="flex items-center">
             <Link to="/account/profile" className="sub-menu-inactive">
               Profile
@@ -43,13 +43,20 @@ function AccountAPIPage() {
                 </div>
               </label>
               <div className="flex items-center">
-                <input
+                {/* <input
                   tabIndex={0}
                   aria-label="Please input email address"
                   type="text"
                   className="w-full text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200 place-content-end placeholder:justify-items-end"
+                  value = "juhewr623iuqw6eh87w4tj8qr"
                 />
-                <ContentCopyRoundedIcon className="text-gray-900 cursor-pointer ml-2" />
+                <ContentCopyRoundedIcon className="text-gray-900 cursor-pointer ml-2" /> */}
+                <div className="w-full bg-light-green border border-solid border-green rounded-md h-[42px] p-3 mt-4 flex items-center justify-between">
+                  <div className="w-full cursor-text"></div>
+                  <div className="material-icons-round text-green cursor-pointer">
+                    content_copy
+                  </div>
+                </div>
               </div>
             </div>
           </div>
