@@ -9,22 +9,13 @@ function ViewIncomingOrders() {
       <div className="w-full flex items-center justify-center my-12">
         <div className="absolute top-40 lg:top-32 bg-white shadow rounded py-12 lg:px-28 px-8">
           <div className="md:w-96 flex items-center">
-            <Link
-              to="incoming"
-              className="sub-menu-active"
-            >
+            <Link to="/orders/incoming" className="sub-menu-active">
               Incoming
             </Link>
-            <Link
-              to="processing"
-              className="sub-menu-inactive"
-            >
+            <Link to="/orders/processing" className="sub-menu-inactive">
               Processing
             </Link>
-            <Link
-              to="delivering"
-              className="sub-menu-inactive"
-            >
+            <Link to="/orders/delivering" className="sub-menu-inactive">
               Statistics
             </Link>
           </div>
@@ -69,7 +60,11 @@ function ViewIncomingOrders() {
                   <tbody className="text-sm divide-y divide-gray-100">
                     <tr>
                       <td className="p-2">
-                        <input type="checkbox" className="w-5 h-5" value="id-1" />
+                        <input
+                          type="checkbox"
+                          className="w-5 h-5"
+                          value="id-1"
+                        />
                       </td>
                       <td className="pl-2 pr-4 py-6">
                         <div className="font-medium text-gray-800">21338</div>
@@ -86,9 +81,7 @@ function ViewIncomingOrders() {
                       </td>
                       <td className="pl-2 pr-4 py-6">
                         <div className="flex justify-center items-center w-full">
-                          <div className="status-cold">
-                            Paid
-                          </div>
+                          <div className="status-cold">Paid</div>
                         </div>
                       </td>
                       <td className="pl-2 pr-4 py-6">
@@ -105,7 +98,11 @@ function ViewIncomingOrders() {
 
                     <tr>
                       <td className="p-2">
-                        <input type="checkbox" className="w-5 h-5" value="id-2" />
+                        <input
+                          type="checkbox"
+                          className="w-5 h-5"
+                          value="id-2"
+                        />
                       </td>
                       <td className="pl-2 pr-4 py-6">
                         <div className="font-medium text-gray-800">21341</div>
@@ -122,9 +119,7 @@ function ViewIncomingOrders() {
                       </td>
                       <td className="pl-2 pr-4 py-6">
                         <div className="flex justify-center items-center w-full">
-                          <div className="status-cold">
-                            Paid
-                          </div>
+                          <div className="status-cold">Paid</div>
                         </div>
                       </td>
                       <td className="pl-2 pr-4 py-6">
@@ -141,7 +136,11 @@ function ViewIncomingOrders() {
 
                     <tr>
                       <td className="p-2">
-                        <input type="checkbox" className="w-5 h-5" value="id-3" />
+                        <input
+                          type="checkbox"
+                          className="w-5 h-5"
+                          value="id-3"
+                        />
                       </td>
                       <td className="pl-2 pr-4 py-6">
                         <div className="font-medium text-gray-800">21342</div>
@@ -158,9 +157,7 @@ function ViewIncomingOrders() {
                       </td>
                       <td className="pl-2 pr-4 py-6">
                         <div className="flex justify-center items-center w-full">
-                          <div className="status-hot">
-                            Unpaid
-                          </div>
+                          <div className="status-hot">Unpaid</div>
                         </div>
                       </td>
                       <td className="pl-2 pr-4 py-6">
@@ -180,12 +177,8 @@ function ViewIncomingOrders() {
 
               {/* <!-- Buttons --> */}
               <div className="flex justify-start items-center w-full mt-4">
-                <button className="btn-primary">
-                  Move to Processing
-                </button>
-                <button className="btn-secondary">
-                  Print List
-                </button>
+                <button className="btn-primary">Move to Processing</button>
+                <button className="btn-secondary">Print List</button>
               </div>
             </div>
           </div>

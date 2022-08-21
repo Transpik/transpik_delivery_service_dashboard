@@ -10,36 +10,24 @@ function NavBar() {
           <div className="flex items-center justify-between">
             <div>
               <img src={Logo} alt="company logo" className="h-20"></img>
-              <p className="text-white">Unverified</p>
+              <p className="text-white">Anton(Pvt) Ltd</p>
             </div>
             <div className="hidden lg:flex items-center">
-              <Link
-                to="orders"
-                className="menu-inactive"
-              >
+              <Link to="orders" className="menu-inactive">
                 Orders
               </Link>
-              <Link
-                to="account"
-                className="menu-inactive"
-              >
+              <Link to="account" className="menu-inactive">
                 Account
               </Link>
-              <Link
-                to="users"
-                className="menu-inactive"
-              >
+              <Link to="users" className="menu-inactive">
                 Users
               </Link>
-              <Link
-                to="charges"
-                className="menu-inactive"
-              >
+              <Link to="charges" className="menu-inactive">
                 Config
               </Link>
-              <button className="btn">
+              <Link to="login" className="btn">
                 Log out
-              </button>
+              </Link>
             </div>
             <div
               className="lg:hidden text-white"

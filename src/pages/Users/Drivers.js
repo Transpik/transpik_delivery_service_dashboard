@@ -9,11 +9,7 @@ function ViewDrivers() {
       <div className="w-full flex items-center justify-center my-12">
         <div className="absolute top-40 lg:top-32 bg-white shadow rounded py-12 lg:px-28 px-8">
           <div className="md:w-96 flex items-center">
-            <p
-              tabIndex={0}
-              role="button"
-              className="sub-menu-active"
-            >
+            <p tabIndex={0} role="button" className="sub-menu-active">
               Drivers
             </p>
           </div>
@@ -45,7 +41,9 @@ function ViewDrivers() {
                         <div className="font-semibold text-left">Email</div>
                       </th>
                       <th className="p-2">
-                        <div className="font-semibold text-left">License ID</div>
+                        <div className="font-semibold text-left">
+                          License ID
+                        </div>
                       </th>
                       <th className="p-2">
                         <div className="font-semibold text-left">Status</div>
@@ -77,13 +75,13 @@ function ViewDrivers() {
                         </div>
                       </td>
                       <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">18569325553</div>
+                        <div className="font-medium text-gray-800">
+                          18569325553
+                        </div>
                       </td>
                       <td className="pl-2 pr-4 py-6">
                         <div className="flex justify-center items-center w-full">
-                          <div className="sub-menu-active">
-                            Active
-                          </div>
+                          <div className="sub-menu-active">Active</div>
                         </div>
                       </td>
                       <td className="pl-2 pr-4 py-6">
@@ -122,13 +120,13 @@ function ViewDrivers() {
                         </div>
                       </td>
                       <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">18569325553</div>
+                        <div className="font-medium text-gray-800">
+                          18569325553
+                        </div>
                       </td>
                       <td className="pl-2 pr-4 py-6">
                         <div className="flex justify-center items-center w-full">
-                          <div className="sub-menu-active">
-                            Active
-                          </div>
+                          <div className="sub-menu-active">Active</div>
                         </div>
                       </td>
                       <td className="pl-2 pr-4 py-6">
@@ -167,13 +165,13 @@ function ViewDrivers() {
                         </div>
                       </td>
                       <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">18569325553</div>
+                        <div className="font-medium text-gray-800">
+                          18569325553
+                        </div>
                       </td>
                       <td className="pl-2 pr-4 py-6">
                         <div className="flex justify-center items-center w-full">
-                          <div className="sub-menu-inactive">
-                            Inactive
-                          </div>
+                          <div className="sub-menu-inactive">Inactive</div>
                         </div>
                       </td>
                       <td className="pl-2 pr-4 py-6">
@@ -200,9 +198,7 @@ function ViewDrivers() {
 
               {/* <!-- Add driver --> */}
               <div className="flex justify-end items-center w-full mt-4">
-                <button className="btn-secondary">
-                  Add Driver
-                </button>
+                <button className="btn-secondary">Add Driver</button>
               </div>
             </div>
           </div>
