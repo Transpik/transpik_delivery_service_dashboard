@@ -48,7 +48,7 @@ function BillingPage() {
 
               
               <div className="p-1 border-[#333333] border-2 mt-3 rounded-2xl">
-              <img className="mr-2 scale-50" src={visa}/>
+              <img className="ml-4 w-24" src={visa}/>
                 <div class="block p-4 bg-white sm:p-4 mt-2">
                   <div>
                     <h5 class="text-xl font-bold text-gray-900">Visa ending in 1234</h5>
