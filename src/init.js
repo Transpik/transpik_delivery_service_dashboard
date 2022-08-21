@@ -7,6 +7,8 @@ import ViewDrivers from "./pages/Users/Drivers";
 import ViewChargesPage from "./pages/Config/Charges";
 import AccountProfilePage from "./pages/Account/ProfilePage";
 import AccountAPIPage from "./pages/Account/APIPage";
+import AccountBillingPage from "./pages/Account/BillingPage"
+import AccountMarketplacePage from "./pages/Account/MarketplacePage";
 import ViewIncomingOrders from "./pages/Orders/Incoming";
 import ViewIncomingOrdersList from "./pages/Orders/Incoming";
 import ViewProcessingOrders from "./pages/Orders/Processing";
@@ -24,6 +26,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="account" element={<AccountProfilePage />} />
         <Route path="account/profile" element={<AccountProfilePage />} />
         <Route path="account/api" element={<AccountAPIPage />} />
+        <Route path="account/billing" element={<AccountBillingPage />} />
+        <Route path="account/marketplace" element={<AccountMarketplacePage />} />
 
         <Route path="orders" element={<ViewIncomingOrdersList />} />
         <Route path="orders/incoming" element={<ViewIncomingOrdersList />} />

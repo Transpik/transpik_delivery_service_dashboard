@@ -14,10 +14,10 @@ function AccountAPIPage() {
             <Link to="/account/api" className="sub-menu-active">
               API
             </Link>
-            <Link to="#" className="sub-menu-inactive">
+            <Link to="/account/billing" className="sub-menu-inactive">
               Billing
             </Link>
-            <Link to="#" className="sub-menu-inactive">
+            <Link to="/account/marketplace" className="sub-menu-inactive">
               Marketplace
             </Link>
           </div>
