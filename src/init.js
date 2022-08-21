@@ -11,6 +11,7 @@ import ViewIncomingOrders from "./pages/Orders/Incoming";
 import ViewIncomingOrdersList from "./pages/Orders/Incoming";
 import ViewProcessingOrders from "./pages/Orders/Processing";
 import ViewDeliveringOrders from "./pages/Orders/Delivering";
+import Login from "./pages/Login";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -28,6 +29,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path="orders/incoming" element={<ViewIncomingOrdersList />} />
         <Route path="orders/processing" element={<ViewProcessingOrders />} />
         <Route path="orders/delivering" element={<ViewDeliveringOrders />} />
+
+        <Route path="login" element={<Login />}></Route>
       </Route>
     </Routes>
   </BrowserRouter>
