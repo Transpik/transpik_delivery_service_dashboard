@@ -3,17 +3,12 @@ import { Link } from "react-router-dom";
 import PackageCard from "../../components/PackageCard/PackageCard";
 
 function MarketplacePage() {
-
   return (
-
-    
-
     <div>
-      
-      <div className="w-full flex items-center justify-center my-12">
-        <div className="absolute top-40 lg:top-32 bg-white shadow rounded py-12 lg:px-28 px-8">
+      <div className="container-position">
+        <div className="container-style">
           <div className="flex items-center">
-          <Link to="/account/profile" className="sub-menu-inactive">
+            <Link to="/account/profile" className="sub-menu-inactive">
               Profile
             </Link>
             <Link to="/account/api" className="sub-menu-inactive">
@@ -26,7 +21,6 @@ function MarketplacePage() {
               Marketplace
             </Link>
           </div>
-
 
           <div className="flex items-end mt-8">
             <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">
@@ -68,12 +62,10 @@ function MarketplacePage() {
               status="Change Plan"
             ></PackageCard>
           </div>
-
         </div>
       </div>
     </div>
   );
-
 }
 
 export default MarketplacePage;
