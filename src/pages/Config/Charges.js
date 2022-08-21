@@ -21,11 +21,7 @@ function ViewChargesPage() {
       <div className="w-full flex items-center justify-center my-12">
         <div className="absolute top-40 lg:top-32 bg-white shadow rounded py-12 lg:px-28 px-8">
           <div className="flex items-center">
-            <p
-              tabIndex={0}
-              role="button"
-              className="sub-menu-active"
-            >
+            <p tabIndex={0} role="button" className="sub-menu-active">
               Profile
             </p>
           </div>
@@ -176,9 +172,7 @@ function ViewChargesPage() {
 
               {/* <!-- Add driver --> */}
               <div className="flex justify-end items-center w-full mt-4">
-                <button className="btn-secondary">
-                  Add Driver
-                </button>
+                <button className="btn-secondary">Add Driver</button>
               </div>
             </div>
           </div>

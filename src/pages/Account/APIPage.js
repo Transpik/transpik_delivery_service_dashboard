@@ -8,10 +8,10 @@ function AccountAPIPage() {
       <div className="w-full flex items-center justify-center my-12">
         <div className="absolute top-40 lg:top-32 bg-white shadow rounded py-12 lg:px-28 px-8">
           <div className="flex items-center">
-            <Link to="profile" className="sub-menu-inactive">
+            <Link to="/account/profile" className="sub-menu-inactive">
               Profile
             </Link>
-            <Link to="api" className="sub-menu-active">
+            <Link to="/account/api" className="sub-menu-active">
               API
             </Link>
             <Link to="#" className="sub-menu-inactive">

@@ -9,13 +9,13 @@ function ViewDeliveringOrders() {
       <div className="w-full flex items-center justify-center my-12">
         <div className="absolute top-40 lg:top-32 bg-white shadow rounded py-12 lg:px-28 px-8">
           <div className="md:w-96 flex items-center">
-            <Link to="incoming" className="sub-menu-inactive">
+            <Link to="/orders/incoming" className="sub-menu-inactive">
               Incoming
             </Link>
-            <Link to="processing" className="sub-menu-inactive">
+            <Link to="/orders/processing" className="sub-menu-inactive">
               Processing
             </Link>
-            <Link to="delivering" className="sub-menu-active">
+            <Link to="/orders/delivering" className="sub-menu-active">
               Statistics
             </Link>
           </div>
@@ -55,7 +55,9 @@ function ViewDeliveringOrders() {
                         </div>
                       </th>
                       <th className="p-2">
-                        <div className="font-semibold text-left">Parcel Status</div>
+                        <div className="font-semibold text-left">
+                          Parcel Status
+                        </div>
                       </th>
                       <th className="p-2">
                         <div className="font-semibold text-left">
@@ -68,7 +70,11 @@ function ViewDeliveringOrders() {
                   <tbody className="text-sm divide-y divide-gray-100">
                     <tr>
                       <td className="p-2">
-                        <input type="checkbox" className="w-5 h-5" value="id-1" />
+                        <input
+                          type="checkbox"
+                          className="w-5 h-5"
+                          value="id-1"
+                        />
                       </td>
                       <td className="pl-2 pr-4 py-6">
                         <div className="font-medium text-gray-800">21338</div>
@@ -112,7 +118,11 @@ function ViewDeliveringOrders() {
 
                     <tr>
                       <td className="p-2">
-                        <input type="checkbox" className="w-5 h-5" value="id-2" />
+                        <input
+                          type="checkbox"
+                          className="w-5 h-5"
+                          value="id-2"
+                        />
                       </td>
                       <td className="pl-2 pr-4 py-6">
                         <div className="font-medium text-gray-800">21341</div>
@@ -156,7 +166,11 @@ function ViewDeliveringOrders() {
 
                     <tr>
                       <td className="p-2">
-                        <input type="checkbox" className="w-5 h-5" value="id-3" />
+                        <input
+                          type="checkbox"
+                          className="w-5 h-5"
+                          value="id-3"
+                        />
                       </td>
                       <td className="pl-2 pr-4 py-6">
                         <div className="font-medium text-gray-800">21342</div>

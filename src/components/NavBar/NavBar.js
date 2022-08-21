@@ -13,33 +13,19 @@ function NavBar() {
               <p className="text-white">Unverified</p>
             </div>
             <div className="hidden lg:flex items-center">
-              <Link
-                to="orders"
-                className="menu-inactive"
-              >
+              <Link to="orders" className="menu-inactive">
                 Orders
               </Link>
-              <Link
-                to="account"
-                className="menu-inactive"
-              >
+              <Link to="account" className="menu-inactive">
                 Account
               </Link>
-              <Link
-                to="users"
-                className="menu-inactive"
-              >
+              <Link to="users" className="menu-inactive">
                 Users
               </Link>
-              <Link
-                to="charges"
-                className="menu-inactive"
-              >
+              <Link to="charges" className="menu-inactive">
                 Config
               </Link>
-              <button className="btn">
-                Log out
-              </button>
+              <button className="btn">Log out</button>
             </div>
             <div
               className="lg:hidden text-white"
