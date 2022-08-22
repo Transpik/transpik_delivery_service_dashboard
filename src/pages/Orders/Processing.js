@@ -16,7 +16,7 @@ function ViewProcessingOrders() {
               Processing
             </Link>
             <Link to="/orders/delivering" className="sub-menu-inactive">
-              Statistics
+              Delivering
             </Link>
           </div>
           <div className="flex items-end mt-8">
