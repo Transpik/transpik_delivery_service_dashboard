@@ -2,8 +2,12 @@ import React from "react";
 import BorderColorRoundedIcon from "@mui/icons-material/BorderColorRounded";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import ViewListRoundedIcon from "@mui/icons-material/ViewListRounded";
+import AddDriver from '../../components/Popup/Users/AddUser';
+import { useState } from 'react';
 
 function ViewDrivers() {
+  const [userPopoup,setUserPopup] = useState(false);
+  
   return (
     <div>
       <div className="container-position">
@@ -196,9 +200,11 @@ function ViewDrivers() {
                 </table>
               </div>
 
+              <AddDriver trigger={userPopoup} setTrigger={setUserPopup}/>
+
               {/* <!-- Add driver --> */}
               <div className="flex justify-end items-center w-full mt-4">
-                <button className="btn-secondary">Add Driver</button>
+                <button className="btn-secondary" onClick={()=>setUserPopup(true)}>Add Driver</button>
               </div>
             </div>
           </div>
