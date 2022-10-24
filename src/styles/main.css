@@ -10,7 +10,7 @@
     @apply mt-4 mr-2 text-base font-semibold leading-none text-white py-4 px-10 bg-green rounded hover:bg-dark_green focus:ring-2 focus:ring-offset-2 focus:ring-offset-lime-600 focus:outline-none;
   }
   .btn {
-    @apply text-base font-medium leading-none text-orange py-4 px-5 bg-white rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white hover:bg-gray-300;
+    @apply text-base font-medium leading-none text-orange py-3 px-5 bg-white rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white hover:bg-gray-300;
   }
   .status-hot {
     @apply w-24 text-center text-base font-semibold leading-none text-white py-2 px-4 bg-red-300 rounded;
@@ -31,7 +31,7 @@
     @apply text-base bg-orange bg-opacity-20 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange hover:bg-opacity-40 font-medium mr-10 leading-4 cursor-pointer text-black;
   }
   .container-style {
-    @apply absolute top-40 lg:top-32 bg-white shadow rounded-xl py-12 lg:px-28 px-8;
+    @apply absolute top-40 lg:top-32 bg-white shadow rounded-2xl py-12 lg:px-28 px-8 w-[1200px];
   }
   .container-position {
     @apply w-full flex items-center justify-center my-12;
