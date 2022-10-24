@@ -34,8 +34,13 @@ module.exports = {
         port: 3000,
         open: true,
         hot: true,
-        historyApiFallback: {
+        /*historyApiFallback: {
             index: "index.html",
+        },*/
+        static: {
+            directory: path.join(__dirname, 'public'),
+            publicPath: '/',
         },
+        historyApiFallback: true,
     },
 } 
