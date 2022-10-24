@@ -1,6 +1,6 @@
 import React from "react";
 import Logo from "../../assets/NavLogo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -13,21 +13,21 @@ function NavBar() {
               <p className="text-white">Anton(Pvt) Ltd</p>
             </div>
             <div className="hidden lg:flex items-center">
-              <Link to="orders" className="menu-inactive">
+              <NavLink to="orders" className="menu-selection">
                 Orders
-              </Link>
-              <Link to="account" className="menu-inactive">
+              </NavLink>
+              <NavLink to="account" className="menu-selection">
                 Account
-              </Link>
-              <Link to="users" className="menu-inactive">
+              </NavLink>
+              <NavLink to="users" className="menu-selection">
                 Users
-              </Link>
-              <Link to="charges" className="menu-inactive">
+              </NavLink>
+              <NavLink to="charges" className="menu-selection">
                 Config
-              </Link>
-              <Link to="login" className="btn">
+              </NavLink>
+              <NavLink to="login" className="btn">
                 Log out
-              </Link>
+              </NavLink>
             </div>
             <div
               className="lg:hidden text-white"
