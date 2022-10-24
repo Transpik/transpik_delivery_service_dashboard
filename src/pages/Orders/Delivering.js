@@ -18,6 +18,9 @@ function ViewDeliveringOrders() {
             <Link to="/orders/delivering" className="sub-menu-active">
               Delivering
             </Link>
+            <Link to="/orders/earning" className="sub-menu-inactive">
+              Earning
+            </Link>
           </div>
           <div className="flex items-end mt-8">
             <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">

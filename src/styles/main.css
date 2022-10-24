@@ -31,7 +31,7 @@
     @apply text-base bg-orange bg-opacity-20 px-4 py-2 rounded focus:outline-none focus:ring-1 pr-2 focus:ring-offset-1 focus:ring-orange hover:bg-opacity-40 font-medium mr-10 leading-4 cursor-pointer text-black;
   }
   .container-style {
-    @apply absolute top-40 lg:top-32 bg-white shadow rounded-xl py-12 lg:px-28 px-8;
+    @apply absolute top-40 lg:top-32 bg-white shadow rounded-2xl py-12 lg:px-28 px-8 w-[1200px];
   }
   .container-position {
     @apply w-full flex items-center justify-center my-12;
