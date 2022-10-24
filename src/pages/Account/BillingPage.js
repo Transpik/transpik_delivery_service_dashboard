@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BillingCard from "../../components/BillingCard/BillingCard";
-import visa from "../../assets/visa.png"
+//import visa from "../../assets/visa.png"
 
 function BillingPage() {
 
