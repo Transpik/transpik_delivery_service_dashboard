@@ -6,7 +6,7 @@ function DeleteOrders(props){
         <div className='relative p-[32px] w-full max-w-[640px] bg-[#ffffff] text-center'>
             <div className='font-bold text-2xl'>Are you Sure?</div>
             <div className='p-[15px]'>
-            <div>Do you really want to delete this order?</div>
+            <div>Do you really want to delete this Driver?</div>
             <div>This process cannot be undone</div>
             </div>
 

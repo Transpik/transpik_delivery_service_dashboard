@@ -8,9 +8,9 @@ function NavBar() {
       <div className="bg-orange h-48 w-full">
         <div className="md:px-20 px-4 py-8">
           <div className="flex items-center justify-between">
-            <div>
+            <div className="flex flex-row items-end">
               <img src={Logo} alt="company logo" className="h-20"></img>
-              <p className="text-white">Anton(Pvt) Ltd</p>
+              <p className="text-white px-4">Anton(Pvt) Ltd</p>
             </div>
             <div className="hidden lg:flex items-center">
               <NavLink to="orders" className="menu-selection">
