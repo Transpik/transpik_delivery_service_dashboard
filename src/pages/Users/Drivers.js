@@ -3,11 +3,12 @@ import BorderColorRoundedIcon from "@mui/icons-material/BorderColorRounded";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import ViewListRoundedIcon from "@mui/icons-material/ViewListRounded";
 import AddDriver from '../../components/Popup/Users/AddUser';
+import DelPopup from '../../components/Popup/Users/DeleteUsers';
 import { useState } from 'react';
 
 function ViewDrivers() {
   const [userPopoup,setUserPopup] = useState(false);
-  
+  const [deletePopoup,setDeletePopup] = useState(false);
   return (
     <div>
       <div className="container-position">
@@ -98,10 +99,10 @@ function ViewDrivers() {
                       <td className="pl-2 pr-4 py-6">
                         <div className="flex justify-center">
                           <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-600" />
+                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-600 hover:text-cyan-400" />
                           </button>
                           <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-600" />
+                            <DeleteOutlineRoundedIcon onClick={()=>setDeletePopup(true)} className="text-lg mx-1 text-gray-600 hover:text-red-400" />
                           </button>
                         </div>
                       </td>
@@ -143,10 +144,10 @@ function ViewDrivers() {
                       <td className="pl-2 pr-4 py-6">
                         <div className="flex justify-center">
                           <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-600" />
+                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-600 hover:text-cyan-400" />
                           </button>
                           <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-600" />
+                            <DeleteOutlineRoundedIcon onClick={()=>setDeletePopup(true)} className="text-lg mx-1 text-gray-600 hover:text-red-400" />
                           </button>
                         </div>
                       </td>
@@ -188,10 +189,10 @@ function ViewDrivers() {
                       <td className="pl-2 pr-4 py-6">
                         <div className="flex justify-center">
                           <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-600" />
+                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-600 hover:text-cyan-400" />
                           </button>
                           <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-600" />
+                            <DeleteOutlineRoundedIcon onClick={()=>setDeletePopup(true)} className="text-lg mx-1 text-gray-600 hover:text-red-400" />
                           </button>
                         </div>
                       </td>
@@ -200,6 +201,7 @@ function ViewDrivers() {
                 </table>
               </div>
 
+              <DelPopup trigger={deletePopoup} setTrigger={setDeletePopup}/>
               <AddDriver trigger={userPopoup} setTrigger={setUserPopup}/>
 
               {/* <!-- Add driver --> */}
