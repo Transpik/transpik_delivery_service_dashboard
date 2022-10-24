@@ -1,9 +1,13 @@
 import React from "react";
+import DelPopup from '../../components/Popup/Orders/DeleteOrders';
 import { Link } from "react-router-dom";
 import BorderColorRoundedIcon from "@mui/icons-material/BorderColorRounded";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
+import { useState } from 'react';
+
 
 function ViewProcessingOrders() {
+  const [deletePopoup,setDeletePopup] = useState(false);
   return (
     <div>
       <div className="container-position">
@@ -103,7 +107,7 @@ function ViewProcessingOrders() {
                             <BorderColorRoundedIcon className="text-base mx-1 text-gray-500 hover:text-cyan-400" />
                           </button>
                           <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-500 hover:text-red-400" />
+                            <DeleteOutlineRoundedIcon onClick={()=>setDeletePopup(true)} className="text-lg mx-1 text-gray-500 hover:text-red-400" />
                           </button>
                         </div>
                       </td>
@@ -146,7 +150,7 @@ function ViewProcessingOrders() {
                             <BorderColorRoundedIcon className="text-base mx-1 text-gray-500 hover:text-cyan-400" />
                           </button>
                           <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-500 hover:text-red-400" />
+                            <DeleteOutlineRoundedIcon onClick={()=>setDeletePopup(true)} className="text-lg mx-1 text-gray-500 hover:text-red-400" />
                           </button>
                         </div>
                       </td>
@@ -189,7 +193,7 @@ function ViewProcessingOrders() {
                             <BorderColorRoundedIcon className="text-base mx-1 text-gray-500 hover:text-cyan-400" />
                           </button>
                           <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-500 hover:text-red-400" />
+                            <DeleteOutlineRoundedIcon onClick={()=>setDeletePopup(true)} className="text-lg mx-1 text-gray-500 hover:text-red-400" />
                           </button>
                         </div>
                       </td>
@@ -197,6 +201,8 @@ function ViewProcessingOrders() {
                   </tbody>
                 </table>
               </div>
+
+              <DelPopup trigger={deletePopoup} setTrigger={setDeletePopup}/>
 
               {/* <!-- Button --> */}
               <div className="flex justify-start items-center w-full mt-4">
