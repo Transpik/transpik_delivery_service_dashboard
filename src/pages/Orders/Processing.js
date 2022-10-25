@@ -110,6 +110,11 @@ function ViewProcessingOrders() {
                           Action
                         </div>
                       </th>
+                      <th className="p-2">
+                        <div className="font-semibold text-left">
+                          Driver
+                        </div>
+                      </th>
                     </tr>
                   </thead>
 

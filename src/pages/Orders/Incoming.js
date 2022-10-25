@@ -5,50 +5,52 @@ import BorderColorRoundedIcon from "@mui/icons-material/BorderColorRounded";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 
 import axios from "axios";
-const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NjY2OTc0NzEsImV4cCI6MTY2Njg3MDI3MSwiYXVkIjoiZGVsaXZlcnkiLCJpc3MiOiJodHRwczovL3RyYW5zcGlrYXBpLm9ucmVuZGVyLmNvbSIsInN1YiI6IjYzNTdjODAyZThkNzZhOWE3N2JiYmEyMCJ9.0S2y5CkzM2K3qMUYfgCPb8aEftKS7QQNnmH5ux5xieA';
-
+const accessToken =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NjY2OTc0NzEsImV4cCI6MTY2Njg3MDI3MSwiYXVkIjoiZGVsaXZlcnkiLCJpc3MiOiJodHRwczovL3RyYW5zcGlrYXBpLm9ucmVuZGVyLmNvbSIsInN1YiI6IjYzNTdjODAyZThkNzZhOWE3N2JiYmEyMCJ9.0S2y5CkzM2K3qMUYfgCPb8aEftKS7QQNnmH5ux5xieA";
 
 function ViewIncomingOrders() {
-
   const [orders, setOrders] = useState([]);
 
   const moveToProcessing = (event) => {
     axios({
-      method: 'PATCH',
+      method: "PATCH",
       headers: {
-        'Content-Type': 'application/json',
-        'Access-Token': accessToken
+        "Content-Type": "application/json",
+        "Access-Token": accessToken,
       },
-      url: 'http://localhost:8080/orders/stages/processing',
-      mode: 'cors',
+      url: "http://localhost:8080/orders/stages/processing",
+      mode: "cors",
       withCredentials: true,
       data: {
-        order_id: event.target.value
-      }
-    }).then(response => {
-      //
-    }).catch(error => {
-      console.log(error);
+        order_id: event.target.value,
+      },
     })
-  }
+      .then((response) => {
+        //
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
     axios({
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
-        'Access-Token': accessToken
+        "Content-Type": "application/json",
+        "Access-Token": accessToken,
       },
-      url: 'http://localhost:8080/orders/incomming',
-      mode: 'cors',
+      url: "http://localhost:8080/orders/incomming",
+      mode: "cors",
       withCredentials: true,
-    }).then(response => {
-      setOrders(response.data.data.orders);
-    }).catch(error => {
-      console.log(error);
     })
+      .then((response) => {
+        setOrders(response.data.data.orders);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
-
 
   return (
     <div>
@@ -103,22 +105,19 @@ function ViewIncomingOrders() {
                         </div>
                       </th>
                       <th className="p-2">
-                        <div className="font-semibold text-left">
-                          Action
-                        </div>
+                        <div className="font-semibold text-left">Action</div>
                       </th>
                     </tr>
                   </thead>
 
                   <tbody className="text-sm divide-y divide-gray-100">
-                    
-                    {
-                      orders.map(order => {
-                        
-                        return (
-                          <tr key={order._id}>
+                    {orders.map((order) => {
+                      return (
+                        <tr key={order._id}>
                           <td className="pl-2 pr-4 py-6">
-                            <div className="font-medium text-gray-800">{order._id}</div>
+                            <div className="font-medium text-gray-800">
+                              {order._id}
+                            </div>
                           </td>
                           <td className="pl-2 pr-4 py-6">
                             <div className="font-medium text-gray-800">
@@ -127,21 +126,27 @@ function ViewIncomingOrders() {
                           </td>
                           <td className="pl-2 pr-4 py-6">
                             <div className="font-medium text-gray-800">
-                            {order.delivery_location.address}
+                              {order.delivery_location.address}
                             </div>
                           </td>
                           <td className="pl-2 pr-4 py-6">
                             <div className="flex justify-center items-center w-full">
-                              <div className="status-cold">{order.payment_status}</div>
+                              <div className="status-cold">
+                                {order.payment_status}
+                              </div>
                             </div>
                           </td>
                           <td className="pl-2 pr-4 py-6">
-                            <button value={order._id} onClick={moveToProcessing}>Move to processing</button>
+                            <button
+                              value={order._id}
+                              onClick={moveToProcessing}
+                            >
+                              Move to processing
+                            </button>
                           </td>
                         </tr>
-                        );
-                      })
-                    }
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
