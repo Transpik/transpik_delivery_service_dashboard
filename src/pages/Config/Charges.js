@@ -169,11 +169,6 @@ function ViewChargesPage() {
                   </tbody>
                 </table>
               </div>
-
-              {/* <!-- Add driver --> */}
-              <div className="flex justify-end items-center w-full mt-4">
-                <button className="btn-secondary">Add Driver</button>
-              </div>
             </div>
           </div>
         </div>
