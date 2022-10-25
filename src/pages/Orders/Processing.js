@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import BorderColorRoundedIcon from "@mui/icons-material/BorderColorRounded";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 
+
 function ViewProcessingOrders() {
   return (
     <div>
@@ -17,6 +18,9 @@ function ViewProcessingOrders() {
             </Link>
             <Link to="/orders/delivering" className="sub-menu-inactive">
               Delivering
+            </Link>
+            <Link to="/orders/earning" className="sub-menu-inactive">
+              Earning
             </Link>
           </div>
           <div className="flex items-end mt-8">
@@ -59,6 +63,11 @@ function ViewProcessingOrders() {
                           Parcel Status
                         </div>
                       </th>
+                      <th className="p-2">
+                        <div className="font-semibold text-left">
+                          Driver
+                        </div>
+                      </th>
                     </tr>
                   </thead>
 
@@ -94,14 +103,16 @@ function ViewProcessingOrders() {
                           <div className="status-cold">Arrived</div>
                         </div>
                       </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center">
-                          <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-500 hover:text-cyan-400" />
-                          </button>
-                          <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-500 hover:text-red-400" />
-                          </button>
+                      <td>
+                      <div className="flex justify-center items-center w-full">
+                          <select
+                            className="text-base leading-none text-gray-900 p-1 focus:oultine-none focus:border-orange bg-gray-100 border rounded border-gray-200"
+                          >
+                            <option value="None">None</option>
+                            <option value="L.A.N. Thushara">L.A.N. Thushara</option>
+                            <option value="M.A.N. Kulasekara">M.A.N. Kulasekara</option>
+                            <option value="K.S. Perera">K.S. Perera</option>
+                          </select>
                         </div>
                       </td>
                     </tr>
@@ -137,14 +148,16 @@ function ViewProcessingOrders() {
                           <div className="status-cold">Arrived</div>
                         </div>
                       </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center">
-                          <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-500 hover:text-cyan-400" />
-                          </button>
-                          <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-500 hover:text-red-400" />
-                          </button>
+                      <td>
+                      <div className="flex justify-center items-center w-full">
+                          <select
+                            className="text-base leading-none text-gray-900 p-1 focus:oultine-none focus:border-orange bg-gray-100 border rounded border-gray-200"
+                          >
+                            <option value="None">None</option>
+                            <option value="L.A.N. Thushara">L.A.N. Thushara</option>
+                            <option value="M.A.N. Kulasekara">M.A.N. Kulasekara</option>
+                            <option value="K.S. Perera">K.S. Perera</option>
+                          </select>
                         </div>
                       </td>
                     </tr>
@@ -180,14 +193,16 @@ function ViewProcessingOrders() {
                           <div className="status-hot">Unarrived</div>
                         </div>
                       </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center">
-                          <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-500 hover:text-cyan-400" />
-                          </button>
-                          <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-500 hover:text-red-400" />
-                          </button>
+                      <td>
+                      <div className="flex justify-center items-center w-full">
+                          <select
+                            className="text-base leading-none text-gray-900 p-1 focus:oultine-none focus:border-orange bg-gray-100 border rounded border-gray-200"
+                          >
+                            <option value="None">None</option>
+                            <option value="L.A.N. Thushara">L.A.N. Thushara</option>
+                            <option value="M.A.N. Kulasekara">M.A.N. Kulasekara</option>
+                            <option value="K.S. Perera">K.S. Perera</option>
+                          </select>
                         </div>
                       </td>
                     </tr>

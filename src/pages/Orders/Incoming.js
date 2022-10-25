@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import BorderColorRoundedIcon from "@mui/icons-material/BorderColorRounded";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 
+
 function ViewIncomingOrders() {
   return (
     <div>
@@ -17,6 +18,9 @@ function ViewIncomingOrders() {
             </Link>
             <Link to="/orders/delivering" className="sub-menu-inactive">
               Delivering
+            </Link>
+            <Link to="/orders/earning" className="sub-menu-inactive">
+              Earning
             </Link>
           </div>
           <div className="flex items-end mt-8">
@@ -84,16 +88,6 @@ function ViewIncomingOrders() {
                           <div className="status-cold">Paid</div>
                         </div>
                       </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center">
-                          <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-500 hover:text-cyan-400" />
-                          </button>
-                          <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-500 hover:text-red-400" />
-                          </button>
-                        </div>
-                      </td>
                     </tr>
 
                     <tr>
@@ -122,16 +116,6 @@ function ViewIncomingOrders() {
                           <div className="status-cold">Paid</div>
                         </div>
                       </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center">
-                          <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-500 hover:text-cyan-400" />
-                          </button>
-                          <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-500 hover:text-red-400" />
-                          </button>
-                        </div>
-                      </td>
                     </tr>
 
                     <tr>
@@ -158,16 +142,6 @@ function ViewIncomingOrders() {
                       <td className="pl-2 pr-4 py-6">
                         <div className="flex justify-center items-center w-full">
                           <div className="status-hot">Unpaid</div>
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center">
-                          <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-500 hover:text-cyan-400" />
-                          </button>
-                          <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-500 hover:text-red-400" />
-                          </button>
                         </div>
                       </td>
                     </tr>

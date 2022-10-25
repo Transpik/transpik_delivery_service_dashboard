@@ -207,7 +207,7 @@ function AccountProfilePage() {
                 aria-label="Please input postal code"
                 type="name"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
-                placeholder="Please input postal code"
+                placeholder="Your postal code"
               />
             </div>
           </div>

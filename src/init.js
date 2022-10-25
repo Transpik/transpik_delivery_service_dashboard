@@ -13,6 +13,7 @@ import ViewIncomingOrders from "./pages/Orders/Incoming";
 import ViewIncomingOrdersList from "./pages/Orders/Incoming";
 import ViewProcessingOrders from "./pages/Orders/Processing";
 import ViewDeliveringOrders from "./pages/Orders/Delivering";
+import ViewEarning from "./pages/Orders/Earning";
 import Login from "./pages/Login";
 import axios from "axios";
 

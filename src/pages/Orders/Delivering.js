@@ -18,6 +18,9 @@ function ViewDeliveringOrders() {
             <Link to="/orders/delivering" className="sub-menu-active">
               Delivering
             </Link>
+            <Link to="/orders/earning" className="sub-menu-inactive">
+              Earning
+            </Link>
           </div>
           <div className="flex items-end mt-8">
             <p className="md:text-3xl text-xl font-bold leading-7 text-center text-gray-700">
@@ -104,16 +107,6 @@ function ViewDeliveringOrders() {
                           Hirantha Weeraratne
                         </div>
                       </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center">
-                          <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-500 hover:text-cyan-400" />
-                          </button>
-                          <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-500 hover:text-red-400" />
-                          </button>
-                        </div>
-                      </td>
                     </tr>
 
                     <tr>
@@ -152,16 +145,6 @@ function ViewDeliveringOrders() {
                           Narada Gopallawa
                         </div>
                       </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center">
-                          <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-500 hover:text-cyan-400" />
-                          </button>
-                          <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-500 hover:text-red-400" />
-                          </button>
-                        </div>
-                      </td>
                     </tr>
 
                     <tr>
@@ -198,16 +181,6 @@ function ViewDeliveringOrders() {
                       <td className="pl-2 pr-4 py-6">
                         <div className="font-medium text-gray-800">
                           Dhanuka Chandawimala
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center">
-                          <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-500 hover:text-cyan-400" />
-                          </button>
-                          <button>
-                            <DeleteOutlineRoundedIcon className="text-lg mx-1 text-gray-500 hover:text-red-400" />
-                          </button>
                         </div>
                       </td>
                     </tr>
