@@ -1,15 +1,70 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NjY2OTc0NzEsImV4cCI6MTY2Njg3MDI3MSwiYXVkIjoiZGVsaXZlcnkiLCJpc3MiOiJodHRwczovL3RyYW5zcGlrYXBpLm9ucmVuZGVyLmNvbSIsInN1YiI6IjYzNTdjODAyZThkNzZhOWE3N2JiYmEyMCJ9.0S2y5CkzM2K3qMUYfgCPb8aEftKS7QQNnmH5ux5xieA';
 
 function ViewChargesPage() {
-  const [District, setDistrict] = useState("None");
-  const [City, setCity] = useState("None");
-  const [CostType, setCost] = useState("None");
+  const [city, setCity] = useState("None");
+  const [cost, setCost] = useState(0.00);
+  const [availability, setAvailability] = useState(false);
+  const [chargeConfig, setChargeConfig] = useState([]);
 
-  const distChange = (event) => {
-    setDistrict(event.target.value);
-  };
+  const updateCost = () => {
+    axios({
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Token': accessToken
+      },
+      url: 'http://localhost:8080/charges/delivery_services',
+      mode: 'cors',
+      withCredentials: true,
+      data: {
+        city_fees: {
+          config_id: city,
+          availability: availability,
+          fee: cost
+        }
+      }
+    }).then(response => {
+      setChargeConfig(response.data.data.charge_configurations);
+    }).catch(error => {
+      console.log(error);
+    })
+  }
+
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Token': accessToken
+      },
+      url: 'http://localhost:8080/charges/delivery_services',
+      mode: 'cors',
+      withCredentials: true
+    }).then(response => {
+      setChargeConfig(response.data.data.charge_configurations);
+    }).catch(error => {
+      console.log(error);
+    })
+  }, []);
+
+  const availabilityChange = (event) => {
+    setAvailability(event.target.value);
+  }
+
   const cityChange = (event) => {
+    const configId = event.target.value;
+    chargeConfig.forEach(config => {
+      if(config._id == configId) {
+        setAvailability(config.availability);
+        setCost(config.fee["$numberDecimal"]);
+        setCity(configId);
+        return;
+      }
+    })
     setCity(event.target.value);
   };
   const costChange = (event) => {
@@ -22,7 +77,7 @@ function ViewChargesPage() {
         <div className="container-style">
           <div className="flex items-center">
             <p tabIndex={0} role="button" className="sub-menu-active">
-              Profile
+              Config
             </p>
           </div>
           <div className="flex items-end mt-8">
@@ -37,53 +92,53 @@ function ViewChargesPage() {
           <div className="md:flex items-center mt-4">
             <div className="md:w-40 flex flex-col md:mt-0 mt-4">
               <label className="text-base font-semibold leading-none text-gray-800">
-                District
-              </label>
-              <select
-                value={District}
-                onChange={distChange}
-                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
-              >
-                <option value="None">None</option>
-                <option value="Jaffna">Jaffna</option>
-                <option value="Matara">Matara</option>
-                <option value="Gampaha">Gampaha</option>
-              </select>
-            </div>
-            <div className="md:w-40 flex flex-col md:ml-6 md:mt-0 mt-4">
-              <label className="text-base font-semibold leading-none text-gray-800">
                 City
               </label>
               <select
-                value={City}
+                value={city}
                 onChange={cityChange}
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
               >
-                <option value="None">None</option>
-                <option value="Matara">Matara</option>
-                <option value="Ranna">Ranna</option>
-                <option value="Ja-Ela">Ja-Ela</option>
-                <option value="Kelaniya">Kelaniya</option>
+                <option value={"None"}>None</option>
+                {
+                  chargeConfig.map(charge => <option value={charge._id} key={charge._id}>{charge.city}</option>)
+                }
               </select>
             </div>
+
+            <div className="md:w-40 flex flex-col md:ml-6 md:mt-0 mt-4">
+              <label className="text-base font-semibold leading-none text-gray-800">
+                Availability
+              </label>
+              <select
+                value={availability}
+                onChange={availabilityChange}
+                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
+              >
+                <option value={false}>False</option>
+                <option value={true}>True</option>
+              </select>
+            </div>
+
             <div className="md:w-40 flex flex-col md:ml-6 md:mt-0 mt-4">
               <label className="text-base font-semibold leading-none text-gray-800">
                 Charges
               </label>
-              <select
-                value={CostType}
+              {/*<select
+                value={cost}
                 onChange={costChange}
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
               >
                 <option value="None">None</option>
                 <option value="Free">Free</option>
                 <option value="Cost">Cost</option>
-              </select>
+              </select>*/}
+              <input type="text" className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200" value={cost} onChange={costChange}></input>
             </div>
           </div>
           <div className="flex items-center w-full">
-            <button className="mt-4 text-base font-semibold leading-none text-white py-4 px-10 bg-green rounded hover:bg-dark_green focus:ring-2 focus:ring-offset-2 focus:ring-orange focus:outline-none">
-              Add cost
+            <button onClick={updateCost} className="mt-4 text-base font-semibold leading-none text-white py-4 px-10 bg-green rounded hover:bg-dark_green focus:ring-2 focus:ring-offset-2 focus:ring-orange focus:outline-none">
+              Set Cost
             </button>
           </div>
 
@@ -98,7 +153,7 @@ function ViewChargesPage() {
                         <div className="font-semibold text-left">City</div>
                       </th>
                       <th className="p-2">
-                        <div className="font-semibold text-left">District</div>
+                        <div className="font-semibold text-left">Availability</div>
                       </th>
                       <th className="p-2">
                         <div className="font-semibold text-left">
@@ -114,58 +169,26 @@ function ViewChargesPage() {
                   </thead>
 
                   <tbody className="text-sm divide-y divide-gray-100">
-                    <tr>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">Matara</div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">Matara</div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">81000</div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800 text-right">
-                          Rs. 400.00
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          Akuressa
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">Matara</div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">81001</div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800 text-right">
-                          Rs.650.00
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">Ja-Ela</div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">Gampaha</div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">65400</div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6 text-right">
-                        <div className="font-medium text-gray-800">
-                          RS. 400.00
-                        </div>
-                      </td>
-                    </tr>
+                    {
+                      chargeConfig.map(config => {
+                        return (<tr>
+                          <td className="pl-2 pr-4 py-6">
+                            <div className="font-medium text-gray-800">{config.city}</div>
+                          </td>
+                          <td className="pl-2 pr-4 py-6">
+                            <div className="font-medium text-gray-800">{config.availability}</div>
+                          </td>
+                          <td className="pl-2 pr-4 py-6">
+                            <div className="font-medium text-gray-800">{config.postal_code}</div>
+                          </td>
+                          <td className="pl-2 pr-4 py-6">
+                            <div className="font-medium text-gray-800 text-right">
+                              {config.fee["$numberDecimal"]}
+                            </div>
+                          </td>
+                        </tr>);
+                      })
+                    }
                   </tbody>
                 </table>
               </div>
