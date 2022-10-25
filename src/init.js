@@ -24,7 +24,7 @@ const refreshToken = params.get('auth');
 
 axios({
   method: 'POST',
-  url: 'http://localhost:8080/users/silent_auth',
+  url: 'https://transpikapi.onrender.com/silent_auth',
   mode: 'cors',
   withCredentials: true,
   data: {
