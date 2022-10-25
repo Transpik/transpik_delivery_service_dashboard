@@ -14,28 +14,56 @@ import ViewIncomingOrdersList from "./pages/Orders/Incoming";
 import ViewProcessingOrders from "./pages/Orders/Processing";
 import ViewDeliveringOrders from "./pages/Orders/Delivering";
 import Login from "./pages/Login";
+import axios from "axios";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<UserRoutes />}>
-        <Route index element={<ViewIncomingOrders />} />
-        <Route path="users" element={<ViewDrivers />} />
-        <Route path="charges" element={<ViewChargesPage />} />
+const params = new URLSearchParams(window.location.search)
+if(!params.has('auth')) window.location.href = 'https://transpikland.onrender.com/login';
 
-        <Route path="account" element={<AccountProfilePage />} />
-        <Route path="account/profile" element={<AccountProfilePage />} />
-        <Route path="account/api" element={<AccountAPIPage />} />
-        <Route path="account/billing" element={<AccountBillingPage />} />
-        <Route path="account/marketplace" element={<AccountMarketplacePage />} />
+const refreshToken = params.get('auth'); 
 
-        <Route path="orders" element={<ViewIncomingOrdersList />} />
-        <Route path="orders/incoming" element={<ViewIncomingOrdersList />} />
-        <Route path="orders/processing" element={<ViewProcessingOrders />} />
-        <Route path="orders/delivering" element={<ViewDeliveringOrders />} />
+axios({
+  method: 'POST',
+  url: 'http://localhost:8080/users/silent_auth',
+  mode: 'cors',
+  withCredentials: true,
+  data: {
+    refreshToken: refreshToken
+  }
+}).then((response) => {
+  if(response.status == 200) {
 
-        <Route path="login" element={<Login />}></Route>
-      </Route>
-    </Routes>
-  </BrowserRouter>
-);
+    window.localStorage.setItem('refreshToken', response.data.data.refreshToken);
+    window.localStorage.setItem('accessToken', response.data.data.accessToken);
+
+    ReactDOM.createRoot(document.getElementById("root")).render(
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<UserRoutes />}>
+            <Route index element={<ViewIncomingOrders />} />
+            <Route path="users" element={<ViewDrivers />} />
+            <Route path="charges" element={<ViewChargesPage />} />
+    
+            <Route path="account" element={<AccountProfilePage />} />
+            <Route path="account/profile" element={<AccountProfilePage />} />
+            <Route path="account/api" element={<AccountAPIPage />} />
+            <Route path="account/billing" element={<AccountBillingPage />} />
+            <Route path="account/marketplace" element={<AccountMarketplacePage />} />
+    
+            <Route path="orders" element={<ViewIncomingOrdersList />} />
+            <Route path="orders/incoming" element={<ViewIncomingOrdersList />} />
+            <Route path="orders/processing" element={<ViewProcessingOrders />} />
+            <Route path="orders/delivering" element={<ViewDeliveringOrders />} />
+    
+            <Route path="login" element={<Login />}></Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    );
+  }
+}).catch((error) => {
+  if(error.response) {
+    alert(error.response.data.message);
+  }
+});
+
+
