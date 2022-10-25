@@ -36,7 +36,7 @@ function BillingPage() {
           </div>
 
           <div className="w-full">
-            <div className="md:inline-block p-4 pl-0 pt-0 mt-4 md:border-r-2">
+            <div className="md:inline-block w-1/2 p-4 pl-0 pt-0 mt-4 md:border-r-2">
               <div className="md:flex items-left">
                 <div className="md:w-full flex flex-col md:mt-0 mt-4">
                   <label className="md:flex items-center mt-4">
@@ -102,7 +102,7 @@ function BillingPage() {
               </div>
             </div>
 
-            <div className="md:inline-block align-top">
+            <div className="md:inline-block  w-1/2 align-top">
               <div className="text-base font-semibold leading-none text-gray-800 mt-4 pt-4 pl-4">Available Cards</div>
               <BillingCard number="4263 9826 4026 9299" name="Anthoney Rodrigo" exp="03/2023" type="VISA"/>
               <BillingCard number="9263 9826 5026 8997" name="John Fernandoz" exp="12/2025" type="MASTER"/>
