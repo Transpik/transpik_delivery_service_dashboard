@@ -138,6 +138,7 @@ function ViewIncomingOrders() {
                           </td>
                           <td className="pl-2 pr-4 py-6">
                             <button
+                              className="btn-primary"
                               value={order._id}
                               onClick={moveToProcessing}
                             >
