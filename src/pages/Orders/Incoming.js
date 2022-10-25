@@ -1,12 +1,55 @@
 import React from "react";
-import DelPopup from '../../components/Popup/Orders/DeleteOrders';
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BorderColorRoundedIcon from "@mui/icons-material/BorderColorRounded";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
-import { useState } from 'react';
+
+import axios from "axios";
+const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NjY2OTc0NzEsImV4cCI6MTY2Njg3MDI3MSwiYXVkIjoiZGVsaXZlcnkiLCJpc3MiOiJodHRwczovL3RyYW5zcGlrYXBpLm9ucmVuZGVyLmNvbSIsInN1YiI6IjYzNTdjODAyZThkNzZhOWE3N2JiYmEyMCJ9.0S2y5CkzM2K3qMUYfgCPb8aEftKS7QQNnmH5ux5xieA';
+
 
 function ViewIncomingOrders() {
-  const [deletePopoup,setDeletePopup] = useState(false);
+
+  const [orders, setOrders] = useState([]);
+
+  const moveToProcessing = (event) => {
+    axios({
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Token': accessToken
+      },
+      url: 'http://localhost:8080/orders/stages/processing',
+      mode: 'cors',
+      withCredentials: true,
+      data: {
+        order_id: event.target.value
+      }
+    }).then(response => {
+      //
+    }).catch(error => {
+      console.log(error);
+    })
+  }
+
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Token': accessToken
+      },
+      url: 'http://localhost:8080/orders/incomming',
+      mode: 'cors',
+      withCredentials: true,
+    }).then(response => {
+      setOrders(response.data.data.orders);
+    }).catch(error => {
+      console.log(error);
+    })
+  }, []);
+
+
   return (
     <div>
       <div className="container-position">
@@ -41,7 +84,6 @@ function ViewIncomingOrders() {
                 <table className="table-auto w-full">
                   <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                     <tr>
-                      <th></th>
                       <th className="p-2">
                         <div className="font-semibold text-left">Order ID</div>
                       </th>
@@ -60,132 +102,52 @@ function ViewIncomingOrders() {
                           Payment Status
                         </div>
                       </th>
+                      <th className="p-2">
+                        <div className="font-semibold text-left">
+                          Action
+                        </div>
+                      </th>
                     </tr>
                   </thead>
 
                   <tbody className="text-sm divide-y divide-gray-100">
-                    <tr>
-                      <td className="p-2">
-                        <input
-                          type="checkbox"
-                          className="w-5 h-5"
-                          value="id-1"
-                        />
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">21338</div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          798, Champlin View, Illinois, Lake Jennie, 38670
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          524 Murphy Knolls Apt. 006, Estabury, 38670
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center items-center w-full">
-                          <div className="status-cold">Paid</div>
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center">
-                          <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-500 hover:text-cyan-400" />
-                          </button>
-                          <button>
-                            <DeleteOutlineRoundedIcon onClick={()=>setDeletePopup(true)} className="text-lg mx-1 text-gray-500 hover:text-red-400" />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td className="p-2">
-                        <input
-                          type="checkbox"
-                          className="w-5 h-5"
-                          value="id-2"
-                        />
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">21341</div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          798, Champlin View, Illinois, Lake Jennie, 38670
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          524 Murphy Knolls Apt. 006, Estabury, 38670
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center items-center w-full">
-                          <div className="status-cold">Paid</div>
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center">
-                          <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-500 hover:text-cyan-400" />
-                          </button>
-                          <button>
-                            <DeleteOutlineRoundedIcon onClick={()=>setDeletePopup(true)} className="text-lg mx-1 text-gray-500 hover:text-red-400" />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td className="p-2">
-                        <input
-                          type="checkbox"
-                          className="w-5 h-5"
-                          value="id-3"
-                        />
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">21342</div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          798, Champlin View, Illinois, Lake Jennie, 38670
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          524 Murphy Knolls Apt. 006, Estabury, 38670
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center items-center w-full">
-                          <div className="status-hot">Unpaid</div>
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center">
-                          <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-500 hover:text-cyan-400" />
-                          </button>
-                          <button>
-                            <DeleteOutlineRoundedIcon onClick={()=>setDeletePopup(true)}className="text-lg mx-1 text-gray-500 hover:text-red-400" />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
+                    
+                    {
+                      orders.map(order => {
+                        
+                        return (
+                          <tr key={order._id}>
+                          <td className="pl-2 pr-4 py-6">
+                            <div className="font-medium text-gray-800">{order._id}</div>
+                          </td>
+                          <td className="pl-2 pr-4 py-6">
+                            <div className="font-medium text-gray-800">
+                              {order.pickup_location.address}
+                            </div>
+                          </td>
+                          <td className="pl-2 pr-4 py-6">
+                            <div className="font-medium text-gray-800">
+                            {order.delivery_location.address}
+                            </div>
+                          </td>
+                          <td className="pl-2 pr-4 py-6">
+                            <div className="flex justify-center items-center w-full">
+                              <div className="status-cold">{order.payment_status}</div>
+                            </div>
+                          </td>
+                          <td className="pl-2 pr-4 py-6">
+                            <button value={order._id} onClick={moveToProcessing}>Move to processing</button>
+                          </td>
+                        </tr>
+                        );
+                      })
+                    }
                   </tbody>
                 </table>
               </div>
 
-              <DelPopup trigger={deletePopoup} setTrigger={setDeletePopup}/>
-
               {/* <!-- Buttons --> */}
               <div className="flex justify-start items-center w-full mt-4">
-                <button className="btn-primary">Move to Processing</button>
                 <button className="btn-secondary">Print List</button>
               </div>
             </div>
