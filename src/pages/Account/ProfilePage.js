@@ -2,6 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
+import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
 
 function AccountProfilePage() {
   const [District, setDistrict] = useState("None");
@@ -17,6 +20,63 @@ function AccountProfilePage() {
   const provChange = (event) => {
     setProvince(event.target.value);
   };
+  
+  const validationSchema = Yup.object().shape({
+    password: Yup.string()
+        .required('Password is required')
+        .matches(/[0-9]/, 'Password requires a number')
+        .matches(/[a-z]/, 'Password requires a lowercase letter')
+        .matches(/[A-Z]/, 'Password requires an uppercase letter')
+        .matches(/[^\w]/, 'Password requires a symbol')
+        .min(8, 'Password must be at least 8 characters'),
+    confirmPassword: Yup.string()
+        .required('Confirm Password is required')
+        .oneOf([Yup.ref('password')], 'Passwords must match')
+        
+});
+
+const validationSchema2 = Yup.object().shape({
+  BusinessName: Yup.string()
+      .required('Business Name is required'),
+  RegNo: Yup.string()
+      .required('Registration Number is required'),
+  Address: Yup.string()
+      .required('Address is required'),
+  // Certificate: Yup.string()
+  //     .required('Password is required'),
+  District: Yup.string()
+      .required('District is required'),
+  City: Yup.string()
+      .required('City is required'),
+  Province: Yup.string()
+      .required('Province is required'),
+  PostalCode: Yup.string()
+      .required('required')
+      .matches(/^[0-9]+$/, 'Only digits')
+      .min(5, 'Exactly 5 digits')
+      .max(5, 'Exactly 5 digits'),
+  
+      
+});
+
+const formOptions = { resolver: yupResolver(validationSchema) };
+const formOptions2 = { resolver: yupResolver(validationSchema2) };
+
+// get functions to build form with useForm() hook
+const { register, handleSubmit, reset, formState:{errors} } = useForm(formOptions);
+const { register:register2, handleSubmit:handleSubmit2, reset:reset2, formState:{errors:errors2} } = useForm(formOptions2);
+
+function onSubmit(data) {
+    // display form data on success
+    alert(JSON.stringify(data, null, 4));
+    return false;
+}
+
+function onSubmitdetails(data) {
+  // display form data on success
+  alert(JSON.stringify(data, null, 4));
+  return false;
+}
 
   return (
     <div>
@@ -52,52 +112,60 @@ function AccountProfilePage() {
             <InfoRoundedIcon className="text-sm text-red-400 cursor-pointer" />
           </div>
 
-          <div className="md:flex items-center mt-8">
-            <div className="md:w-72 flex flex-col md:mt-0 mt-4">
-              <label className="text-base font-semibold leading-none text-gray-800">
-                Email Address
-              </label>
-              <input
-                tabIndex={0}
-                aria-label="Please input email address"
-                type="name"
-                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
-                placeholder="Please input email address"
-              />
+          <form key={1} onSubmit={handleSubmit(onSubmit)}>
+            <div className="md:flex items-center mt-8">
+              <div className="md:w-72 flex flex-col md:mt-0 mt-4">
+                <label className="text-base font-semibold leading-none text-gray-800">
+                  Email Address
+                </label>
+                <input
+                  tabIndex={0}
+                  aria-label="Please input email address"
+                  type="name"
+                  className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
+                  placeholder="Please input email address"
+                />
+              </div>
             </div>
-          </div>
-          <div className="md:flex items-center mt-4">
-            <div className="md:w-72 flex flex-col md:mt-0 mt-4">
-              <label className="text-base font-semibold leading-none text-gray-800">
-                Password
-              </label>
-              <input
-                tabIndex={0}
-                aria-label="Please input password"
-                type="password"
-                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
-                placeholder="Please input password"
-              />
+            <div className="md:flex items-center mt-4">
+              <div className="md:w-72 flex flex-col md:mt-0 mt-4">
+                <label className="text-base font-semibold leading-none text-gray-800">
+                  Password
+                </label>
+                <input
+                  tabIndex={0}
+                  aria-label="Please input password"
+                  type="password"
+                  className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
+                  placeholder="Please input password"
+                  {...register('password')}
+                />
+                <div className="text-red-600">{errors.password?.message}</div>
+              </div>
+              <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
+                <label className="text-base font-semibold leading-none text-gray-800">
+                  Confirm Password
+                </label>
+                <input
+                  tabIndex={0}
+                  aria-label="Please input re-input password"
+                  type="password"
+                  className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
+                  placeholder="Please input re-input password"
+                  {...register('confirmPassword')}
+                />
+                <div className="text-red-600">{errors.confirmPassword?.message}</div>
+              </div>
             </div>
-            <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
-              <label className="text-base font-semibold leading-none text-gray-800">
-                Confirm Password
-              </label>
-              <input
-                tabIndex={0}
-                aria-label="Please input re-input password"
-                type="password"
-                className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
-                placeholder="Please input re-input password"
-              />
-            </div>
-          </div>
 
-          <div className="flex items-center w-full">
-            <button className="mt-4 text-base font-semibold leading-none text-white py-4 px-10 bg-green rounded hover:bg-dark_green focus:ring-2 focus:ring-offset-2 focus:ring-orange focus:outline-none">
-              Change Password
-            </button>
-          </div>
+            <div className="flex items-center w-full">
+              <button className="mt-4 text-base font-semibold leading-none text-white py-4 px-10 bg-green rounded hover:bg-dark_green focus:ring-2 focus:ring-offset-2 focus:ring-orange focus:outline-none">
+                Change Password
+              </button>
+            </div>
+          </form>
+
+          <form key={2} onSubmit={handleSubmit2(onSubmitdetails)}> 
           <div className="md:flex items-center mt-8">
             <div className="md:w-72 flex flex-col md:mt-0 mt-4">
               <label className="text-base font-semibold leading-none text-gray-800">
@@ -109,7 +177,9 @@ function AccountProfilePage() {
                 type="name"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input business name"
+                {...register2('BusinessName')}
               />
+              <div className="text-red-600">{errors2.BusinessName?.message}</div>
             </div>
             <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
               <label className="text-base font-semibold leading-none text-gray-800">
@@ -121,7 +191,9 @@ function AccountProfilePage() {
                 type="name"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input registration number"
+                {...register2('RegNo')}
               />
+              <div className="text-red-600">{errors2.RegNo?.message}</div>
             </div>
           </div>
           <div className="md:flex items-center mt-4">
@@ -135,7 +207,9 @@ function AccountProfilePage() {
                 type="name"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input address"
+                {...register2('Address')}
               />
+            <div className="text-red-600">{errors2.Address?.message}</div>
             </div>
             <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
               <label className="text-base font-semibold leading-none text-gray-800">
@@ -152,51 +226,58 @@ function AccountProfilePage() {
               />
             </div>
           </div>
+
           <div className="md:flex items-center mt-4">
             <div className="md:w-40 flex flex-col md:mt-0 mt-4">
               <label className="text-base font-semibold leading-none text-gray-800">
                 District
               </label>
               <select
+                {...register2('District')}
                 value={District}
                 onChange={distChange}
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
               >
-                <option value="None">None</option>
+                <option value="">None</option>
                 <option value="Jaffna">Jaffna</option>
                 <option value="Matara">Matara</option>
                 <option value="Gampaha">Gampaha</option>
               </select>
+              <div className="text-red-600">{errors2.District?.message}</div>
             </div>
             <div className="md:w-40 flex flex-col md:ml-6 md:mt-0 mt-4">
               <label className="text-base font-semibold leading-none text-gray-800">
                 City
               </label>
               <select
+              {...register2('City')}
                 value={City}
                 onChange={cityChange}
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
               >
-                <option value="None">None</option>
+                <option value="">None</option>
                 <option value="Matara">Matara</option>
                 <option value="Ranna">Ranna</option>
                 <option value="Ja-Ela">Ja-Ela</option>
                 <option value="Kelaniya">Kelaniya</option>
               </select>
+              <div className="text-red-600">{errors2.City?.message}</div>
             </div>
             <div className="md:w-40 flex flex-col md:ml-6 md:mt-0 mt-4">
               <label className="text-base font-semibold leading-none text-gray-800">
                 Province
               </label>
               <select
+              {...register2('Province')}
                 value={Province}
                 onChange={provChange}
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
               >
-                <option value="None">None</option>
+                <option value="">None</option>
                 <option value="Sourthern">Sourthern</option>
                 <option value="Western">Western</option>
               </select>
+              <div className="text-red-600">{errors2.Province?.message}</div>
             </div>
             <div className="md:w-40 flex flex-col md:ml-6 md:mt-0 mt-4">
               <label className="text-base font-semibold leading-none text-gray-800">
@@ -208,10 +289,13 @@ function AccountProfilePage() {
                 type="name"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Your postal code"
+                {...register2('PostalCode')}
               />
+              <div className="text-red-600">{errors2.PostalCode?.message}</div>
+              
+
             </div>
           </div>
-
           <p className="text-xs leading-3 text-gray-600 mt-4 md:w-[44rem]">
             By clicking update and verify, you have provided complete and
             accurate information on the Transpik online registration form, and
@@ -223,6 +307,8 @@ function AccountProfilePage() {
               Update and Verify
             </button>
           </div>
+          </form>
+
         </div>
       </div>
     </div>
