@@ -2,6 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
+import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
 
 const accessToken = window.localStorage.getItem('accessToken');
 
@@ -13,6 +16,28 @@ function AccountProfilePage() {
   const [businessName, setBusinessName] = useState("None");
   const [businessRegNo, setBusinessRegNo] = useState("None");
 
+  const validationSchema = Yup.object().shape({
+    password: Yup.string()
+        .required('Password is required')
+        .matches(/[0-9]/, 'Password requires a number')
+        .matches(/[a-z]/, 'Password requires a lowercase letter')
+        .matches(/[A-Z]/, 'Password requires an uppercase letter')
+        .matches(/[^\w]/, 'Password requires a symbol')
+        .min(8, 'Password must be at least 8 characters'),
+    confirmPassword: Yup.string()
+        .required('Confirm Password is required')
+        .oneOf([Yup.ref('password')], 'Passwords must match')
+        
+});
+
+const formOptions = { resolver: yupResolver(validationSchema) };
+const { register, handleSubmit, reset, formState:{errors} } = useForm(formOptions);
+
+function onSubmit(data) {
+  // display form data on success
+  alert(JSON.stringify(data, null, 4));
+  return false;
+}
 
   const makeVerifyRequest = () => {
     axios({
@@ -102,6 +127,7 @@ function AccountProfilePage() {
             <InfoRoundedIcon className="text-sm text-red-400 cursor-pointer" />
           </div>
 
+          <form key={1} onSubmit={handleSubmit(onSubmit)}>
           <div className="md:flex items-center mt-8">
             <div className="md:w-72 flex flex-col md:mt-0 mt-4">
               <label className="text-base font-semibold leading-none text-gray-800">
@@ -127,7 +153,9 @@ function AccountProfilePage() {
                 type="password"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input password"
+                {...register('password')}
               />
+              <div className="text-red-600">{errors.password?.message}</div>
             </div>
             <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
               <label className="text-base font-semibold leading-none text-gray-800">
@@ -139,7 +167,9 @@ function AccountProfilePage() {
                 type="password"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input re-input password"
+                {...register('confirmPassword')}
               />
+              <div className="text-red-600">{errors.confirmPassword?.message}</div>
             </div>
           </div>
 
@@ -148,6 +178,8 @@ function AccountProfilePage() {
               Change Password
             </button>
           </div>
+          </form>
+          
           <div className="md:flex items-center mt-8">
             <div className="md:w-72 flex flex-col md:mt-0 mt-4">
               <label className="text-base font-semibold leading-none text-gray-800">
