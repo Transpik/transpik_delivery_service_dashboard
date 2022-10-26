@@ -10,13 +10,16 @@ const accessToken = window.localStorage.getItem('accessToken');
 
 function AccountProfilePage() {
   const [country, setCountry] = useState("LK");
-  const [city, setCity] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [address, setAddress] = useState("");
-  const [businessName, setBusinessName] = useState("");
-  const [businessRegNo, setBusinessRegNo] = useState("");
+  const [city, setCity] = useState("None");
+  const [postalCode, setPostalCode] = useState("None");
+  const [address, setAddress] = useState("None");
+  const [businessName, setBusinessName] = useState("None");
+  const [businessRegNo, setBusinessRegNo] = useState("None");
 
   const validationSchema = Yup.object().shape({
+    email: Yup.string()
+            .required('Email is required')
+            .email(),
     password: Yup.string()
         .required('Password is required')
         .matches(/[0-9]/, 'Password requires a number')
@@ -172,7 +175,9 @@ function onSubmitdetails(data) {
                 type="name"
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input email address"
+                {...register('email')}
               />
+              <div className="text-red-600">{errors.email?.message}</div>
             </div>
           </div>
           <div className="md:flex items-center mt-4">
