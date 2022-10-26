@@ -7,6 +7,37 @@ const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NjY2OTc0Nz
 
 function AddUser(props) {
 
+    const validationSchema = Yup.object().shape({
+        initials: Yup.string()
+            .required('Initials required')
+            .matches(/^[aA-zZ\s]+$/, "Only letters are allowed"),
+        lastName: Yup.string()
+            .required('Last Name required')
+            .matches(/^[aA-zZ\s]+$/, "Only letters are allowed"),
+        email: Yup.string()
+            .required('Email is required')
+            .email(),
+        City: Yup.string()
+            .required('City is required'),
+        Password: Yup.string()
+            .required('Password is required'),
+      });
+
+      const formOptions = { resolver: yupResolver(validationSchema) };
+      const { register, handleSubmit, reset, formState:{errors} } = useForm(formOptions);
+      function onSubmitDriver(data) {
+        // display form data on success
+        alert(JSON.stringify(data, null, 4));
+        props.setTrigger(false);
+        window.location.reload(false);
+        return false;
+      }
+
+      function CaneclDriver(){
+        props.setTrigger(false);
+        window.location.reload(false);
+      }
+
     const [city, setCity] = useState(null);
     const [postalCode, setPostalCode] = useState(null);
     const [email, setEmail] = useState(null);
@@ -87,7 +118,9 @@ function AddUser(props) {
                                     onChange={onInitialChange}
                                     value={initials}
                                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                    {...register('initials')}
                                 />
+                                <div className="text-red-600">{errors.initials?.message}</div>
                             </div>
                         </div>
                         <div class="w-full px-3 sm:w-1/2">
@@ -106,7 +139,9 @@ function AddUser(props) {
                                     value={lastName}
                                     placeholder="Last Name"
                                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                                    {...register('lastName')}
                                 />
+                                <div className="text-red-600">{errors.lastName?.message}</div>
                             </div>
                         </div>
                     </div>
@@ -125,7 +160,9 @@ function AddUser(props) {
                             value={email}
                             placeholder="Email"
                             class="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                            {...register('email')}
                         />
+                        <div className="text-red-600">{errors.email?.message}</div>
                     </div>
 
                     <div class="-mx-3 flex flex-wrap">
@@ -137,7 +174,8 @@ function AddUser(props) {
                                 >
                                     Serving City
                                 </label>
-                                <input placeholder="Serving City" onChange={onCityChange} value={city} className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"></input>
+                                <input placeholder="Serving City" onChange={onCityChange} value={city} className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" {...register('City')}></input>
+                                <div className="text-red-600">{errors.City?.message}</div>
                             </div>
                         </div>
                         <div class="w-full px-3 sm:w-1/2">
@@ -148,7 +186,8 @@ function AddUser(props) {
                                 >
                                     Postal Code
                                 </label>
-                                <input placeholder="Postal Code" value={postalCode} onChange={onPostalCodeChange} className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"></input>
+                                <input placeholder="Postal Code" value={postalCode} onChange={onPostalCodeChange} className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" {...register('PostalCode')}></input>
+                                <div className="text-red-600">{errors.PostalCode?.message}</div>
                             </div>
                         </div>
                         <div class="w-full px-3 sm:w-1/2">
@@ -159,13 +198,14 @@ function AddUser(props) {
                                 >
                                     Password
                                 </label>
-                                <input placeholder="Password" value={password} onChange={onPasswordChange} className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"></input>
+                                <input placeholder="Password" value={password} onChange={onPasswordChange} className="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" {...register('Password')}></input>
+                                <div className="text-red-600">{errors.Password?.message}</div>
                             </div>
                         </div>
                     </div>
                     <div>
                         <button className='btn-secondary' onClick={createDriver}>Add Driver</button>
-                        <button className="bg-red-500 btn-secondary hover:bg-red-700" onClick={()=>props.setTrigger(false)}>Cancel</button>
+                        <button className="bg-red-500 btn-secondary hover:bg-red-700" onClick={CaneclDriver}>Cancel</button>
                     </div>
 
 
