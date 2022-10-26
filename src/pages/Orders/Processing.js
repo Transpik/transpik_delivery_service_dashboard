@@ -1,10 +1,53 @@
 import React from "react";
+import Raw from "./Raw";
 import { Link } from "react-router-dom";
 import BorderColorRoundedIcon from "@mui/icons-material/BorderColorRounded";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
+import { useEffect, useState } from "react";
 
+import axios from "axios";
+const accessToken = window.localStorage.getItem('accessToken');
 
 function ViewProcessingOrders() {
+
+  const [assignDriver, setAssignDriver] = useState(null);
+  const [orders, setOrders] = useState([]);
+  const [drivers, setDriver] = useState([]);
+
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Token': accessToken
+      },
+      url: 'https://transpikapi.onrender.com/orders/processing',
+      mode: 'cors',
+      withCredentials: true,
+    }).then(response => {
+      setOrders(response.data.data.orders);
+    }).catch(error => {
+      console.log(error);
+    })
+
+    axios({
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Token': accessToken
+      },
+      url: 'https://transpikapi.onrender.com/users/delivery_services/drivers',
+      mode: 'cors',
+      withCredentials: true,
+    }).then(response => {
+      setDriver(response.data.data.drivers);
+    }).catch(error => {
+      console.log(error);
+    })
+  }, []);
+
+  
+
   return (
     <div>
       <div className="container-position">
@@ -39,7 +82,6 @@ function ViewProcessingOrders() {
                 <table className="table-auto w-full">
                   <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                     <tr>
-                      <th></th>
                       <th className="p-2">
                         <div className="font-semibold text-left">Order ID</div>
                       </th>
@@ -60,159 +102,29 @@ function ViewProcessingOrders() {
                       </th>
                       <th className="p-2">
                         <div className="font-semibold text-left">
-                          Parcel Status
+                          Assign Driver
                         </div>
                       </th>
                       <th className="p-2">
                         <div className="font-semibold text-left">
-                          Driver
+                          Action
                         </div>
                       </th>
                     </tr>
                   </thead>
 
                   <tbody className="text-sm divide-y divide-gray-100">
-                    <tr>
-                      <td className="p-2">
-                        <input
-                          type="checkbox"
-                          className="w-5 h-5"
-                          value="id-1"
-                        />
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">21338</div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          798, Champlin View, Illinois, Lake Jennie, 38670
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          524 Murphy Knolls Apt. 006, Estabury, 38670
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center items-center w-full">
-                          <div className="status-cold">Paid</div>
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center items-center w-full">
-                          <div className="status-cold">Arrived</div>
-                        </div>
-                      </td>
-                      <td>
-                      <div className="flex justify-center items-center w-full">
-                          <select
-                            className="text-base leading-none text-gray-900 p-1 focus:oultine-none focus:border-orange bg-gray-100 border rounded border-gray-200"
-                          >
-                            <option value="None">None</option>
-                            <option value="L.A.N. Thushara">L.A.N. Thushara</option>
-                            <option value="M.A.N. Kulasekara">M.A.N. Kulasekara</option>
-                            <option value="K.S. Perera">K.S. Perera</option>
-                          </select>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td className="p-2">
-                        <input
-                          type="checkbox"
-                          className="w-5 h-5"
-                          value="id-2"
-                        />
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">21341</div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          798, Champlin View, Illinois, Lake Jennie, 38670
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          524 Murphy Knolls Apt. 006, Estabury, 38670
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center items-center w-full">
-                          <div className="status-cold">Paid</div>
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center items-center w-full">
-                          <div className="status-cold">Arrived</div>
-                        </div>
-                      </td>
-                      <td>
-                      <div className="flex justify-center items-center w-full">
-                          <select
-                            className="text-base leading-none text-gray-900 p-1 focus:oultine-none focus:border-orange bg-gray-100 border rounded border-gray-200"
-                          >
-                            <option value="None">None</option>
-                            <option value="L.A.N. Thushara">L.A.N. Thushara</option>
-                            <option value="M.A.N. Kulasekara">M.A.N. Kulasekara</option>
-                            <option value="K.S. Perera">K.S. Perera</option>
-                          </select>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td className="p-2">
-                        <input
-                          type="checkbox"
-                          className="w-5 h-5"
-                          value="id-3"
-                        />
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">21342</div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          798, Champlin View, Illinois, Lake Jennie, 38670
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          524 Murphy Knolls Apt. 006, Estabury, 38670
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center items-center w-full">
-                          <div className="status-cold">Paid</div>
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center items-center w-full">
-                          <div className="status-hot">Unarrived</div>
-                        </div>
-                      </td>
-                      <td>
-                      <div className="flex justify-center items-center w-full">
-                          <select
-                            className="text-base leading-none text-gray-900 p-1 focus:oultine-none focus:border-orange bg-gray-100 border rounded border-gray-200"
-                          >
-                            <option value="None">None</option>
-                            <option value="L.A.N. Thushara">L.A.N. Thushara</option>
-                            <option value="M.A.N. Kulasekara">M.A.N. Kulasekara</option>
-                            <option value="K.S. Perera">K.S. Perera</option>
-                          </select>
-                        </div>
-                      </td>
-                    </tr>
+                    {
+                      orders.map(order => {
+                        return (<Raw
+                          key = {order._id}
+                          order = { order }
+                          drivers = { drivers }
+                        ></Raw>);
+                      })
+                    }
                   </tbody>
                 </table>
-              </div>
-
-              {/* <!-- Button --> */}
-              <div className="flex justify-start items-center w-full mt-4">
-                <button className="btn-secondary">Move to Delivering</button>
               </div>
             </div>
           </div>

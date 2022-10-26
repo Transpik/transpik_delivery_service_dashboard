@@ -4,11 +4,34 @@ import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
 import ViewListRoundedIcon from "@mui/icons-material/ViewListRounded";
 import AddDriver from '../../components/Popup/Users/AddUser';
 import DelPopup from '../../components/Popup/Users/DeleteUsers';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
+import axios from "axios";
+const accessToken = window.localStorage.getItem('accessToken');
 
 function ViewDrivers() {
   const [userPopoup,setUserPopup] = useState(false);
   const [deletePopoup,setDeletePopup] = useState(false);
+  const [drivers, setDriver] = useState([]);
+
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Token': accessToken
+      },
+      url: 'https://transpikapi.onrender.com/users/delivery_services/drivers',
+      mode: 'cors',
+      withCredentials: true,
+    }).then(response => {
+      setDriver(response.data.data.drivers);
+    }).catch(error => {
+      console.log(error);
+    })
+  }, [])
+
+
   return (
     <div>
       <div className="container-position">
@@ -39,164 +62,57 @@ function ViewDrivers() {
                           Name with Initials
                         </div>
                       </th>
-                      <th className="p-2">
-                        <div className="font-semibold text-left">Telephone</div>
-                      </th>
+                      
                       <th className="p-2">
                         <div className="font-semibold text-left">Email</div>
                       </th>
+                      
                       <th className="p-2">
-                        <div className="font-semibold text-left">
-                          License ID
-                        </div>
+                        <div className="font-semibold text-left">Serving City</div>
                       </th>
                       <th className="p-2">
-                        <div className="font-semibold text-left">Status</div>
+                        <div className="font-semibold text-center">Postal Code</div>
                       </th>
                       <th className="p-2">
-                        <div className="font-semibold text-left">States</div>
-                      </th>
-                      <th className="p-2">
-                        <div className="font-semibold text-center">Action</div>
+                        <div className="font-semibold text-center">Password</div>
                       </th>
                     </tr>
                   </thead>
 
                   <tbody className="text-sm divide-y divide-gray-100">
-                    <tr>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          L.A. N. Thushara
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          +94 765869321
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          nuwanthushara@gmail.com
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          18569325553
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center items-center w-full">
-                          <div className="sub-menu-active">Active</div>
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="text-left font-medium text-green-500">
-                          <button>
-                            <ViewListRoundedIcon className="text-base text-gray-600" />
-                          </button>
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center">
-                          <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-600 hover:text-cyan-400" />
-                          </button>
-                          <button>
-                            <DeleteOutlineRoundedIcon onClick={()=>setDeletePopup(true)} className="text-lg mx-1 text-gray-600 hover:text-red-400" />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          L.A. N. Thushara
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          +94 765869321
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          nuwanthushara@gmail.com
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          18569325553
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center items-center w-full">
-                          <div className="sub-menu-active">Active</div>
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="text-left font-medium text-green-500">
-                          <button>
-                            <ViewListRoundedIcon className="text-base text-gray-600" />
-                          </button>
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center">
-                          <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-600 hover:text-cyan-400" />
-                          </button>
-                          <button>
-                            <DeleteOutlineRoundedIcon onClick={()=>setDeletePopup(true)} className="text-lg mx-1 text-gray-600 hover:text-red-400" />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          L.A. N. Thushara
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          +94 765869321
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          nuwanthushara@gmail.com
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="font-medium text-gray-800">
-                          18569325553
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center items-center w-full">
-                          <div className="sub-menu-inactive">Inactive</div>
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="text-left font-medium text-green-500">
-                          <button>
-                            <ViewListRoundedIcon className="text-base text-gray-600" />
-                          </button>
-                        </div>
-                      </td>
-                      <td className="pl-2 pr-4 py-6">
-                        <div className="flex justify-center">
-                          <button>
-                            <BorderColorRoundedIcon className="text-base mx-1 text-gray-600 hover:text-cyan-400" />
-                          </button>
-                          <button>
-                            <DeleteOutlineRoundedIcon onClick={()=>setDeletePopup(true)} className="text-lg mx-1 text-gray-600 hover:text-red-400" />
-                          </button>
-                        </div>
-                      </td>
-                    </tr>
+                    {
+                      drivers.map(driver => {
+                        return (
+                          <tr>
+                            <td className="pl-2 pr-4 py-6">
+                              <div className="font-medium text-gray-800">
+                                {driver.initials+driver.last_name}
+                              </div>
+                            </td>
+                            <td className="pl-2 pr-4 py-6">
+                              <div className="font-medium text-gray-800">
+                                {driver.email}
+                              </div>
+                            </td>
+                            <td className="pl-2 pr-4 py-6">
+                              <div className="font-medium text-gray-800">
+                                {driver.serving_city}
+                              </div>
+                            </td>
+                            <td className="pl-2 pr-4 py-6">
+                              <div className="font-medium text-gray-800">
+                                {driver.postal_code}
+                              </div>
+                            </td>
+                            <td className="pl-2 pr-4 py-6">
+                              <div className="font-medium text-gray-800">
+                                {driver.password}
+                              </div>
+                            </td>
+                        </tr>
+                        );
+                      })
+                    }
                   </tbody>
                 </table>
               </div>
