@@ -104,7 +104,7 @@ function AddUser(props) {
         <div className='fixed flex top-0 left-0 w-full h-[100vh] bg-[#000000]/[0.2] justify-center items-center'>
             <div className='relative p-[32px] w-full max-w-[640px] bg-[#ffffff] text-center'>
                 
-            <form id="driverForm" onSubmit={handleSubmit(onSubmitDriver)}>
+                
                     <div class="-mx-3 flex flex-wrap">
                         <div class="w-full px-3 sm:w-1/2">
                             <div class="mb-5">
@@ -211,7 +211,7 @@ function AddUser(props) {
                         <button className='btn-secondary' onClick={createDriver}>Add Driver</button>
                         <button className="bg-red-500 btn-secondary hover:bg-red-700" onClick={CaneclDriver}>Cancel</button>
                     </div>
-                    </form>
+
 
             </div>
         </div>
