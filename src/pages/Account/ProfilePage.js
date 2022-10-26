@@ -30,16 +30,37 @@ function AccountProfilePage() {
         
 });
 
-const formOptions = { resolver: yupResolver(validationSchema) };
-const { register, handleSubmit, reset, formState:{errors} } = useForm(formOptions);
+const validationSchema2 = Yup.object().shape({
+  BusinessName: Yup.string()
+      .required('Business Name is required'),
+  RegNo: Yup.string()
+      .required('Registration Number is required'),
+  Address: Yup.string()
+      .required('Address is required'),
+  // Certificate: Yup.string()
+  //     .required('Password is required'),
+  Country: Yup.string()
+      .matches('LK','District is required'),
+  City: Yup.string()
+      .required('City is required'),
+  PostalCode: Yup.string()
+      .required('required')
+      .matches(/^[0-9]+$/, 'Only digits')
+      .min(5, 'Exactly 5 digits')
+      .max(5, 'Exactly 5 digits'),
+  
+      
+});
 
-function onSubmit(data) {
-  // display form data on success
-  alert(JSON.stringify(data, null, 4));
-  return false;
-}
+
+const formOptions = { resolver: yupResolver(validationSchema) };
+const formOptions2 = { resolver: yupResolver(validationSchema2) };
+
+const { register, handleSubmit, reset, formState:{errors} } = useForm(formOptions);
+const { register:register2, handleSubmit:handleSubmit2, reset:reset2, formState:{errors:errors2} } = useForm(formOptions2);
 
   const makeVerifyRequest = () => {
+    alert(JSON.stringify(data, null, 4));
     axios({
       method: 'POST',
       headers: {
@@ -127,7 +148,7 @@ function onSubmit(data) {
             <InfoRoundedIcon className="text-sm text-red-400 cursor-pointer" />
           </div>
 
-          <form key={1} onSubmit={handleSubmit(onSubmit)}>
+          <form key={1}>
           <div className="md:flex items-center mt-8">
             <div className="md:w-72 flex flex-col md:mt-0 mt-4">
               <label className="text-base font-semibold leading-none text-gray-800">
@@ -180,6 +201,7 @@ function onSubmit(data) {
           </div>
           </form>
           
+          <form key={2}>
           <div className="md:flex items-center mt-8">
             <div className="md:w-72 flex flex-col md:mt-0 mt-4">
               <label className="text-base font-semibold leading-none text-gray-800">
@@ -193,6 +215,7 @@ function onSubmit(data) {
                 value={businessName}
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input business name"
+                {...register2('BusinessName')}
               />
             </div>
             <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
@@ -207,6 +230,7 @@ function onSubmit(data) {
                 value={businessRegNo}
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input registration number"
+                {...register2('RegNo')}
               />
             </div>
           </div>
@@ -223,6 +247,7 @@ function onSubmit(data) {
                 value={address}
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input address"
+                {...register2('Address')}
               />
             </div>
           </div>
@@ -232,6 +257,7 @@ function onSubmit(data) {
                 Country
               </label>
               <select
+              {...register2('Country')}
                 value={country}
                 onChange={onChangeCountry}
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
@@ -249,7 +275,7 @@ function onSubmit(data) {
                 value={city}
                 onChange={onChangeCity}
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
-                placeholder="Please input city"></input>
+                placeholder="Please input city" {...register2('City')}></input>
             </div>
             
             <div className="md:w-40 flex flex-col md:ml-6 md:mt-0 mt-4">
@@ -264,6 +290,7 @@ function onSubmit(data) {
                 value={postalCode}
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Your postal code"
+                {...register2('PostalCode')}
               />
             </div>
           </div>
@@ -279,6 +306,7 @@ function onSubmit(data) {
               Update and Verify
             </button>
           </div>
+          </form>
         </div>
       </div>
     </div>
