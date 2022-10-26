@@ -10,11 +10,11 @@ const accessToken = window.localStorage.getItem('accessToken');
 
 function AccountProfilePage() {
   const [country, setCountry] = useState("LK");
-  const [city, setCity] = useState("None");
-  const [postalCode, setPostalCode] = useState("None");
-  const [address, setAddress] = useState("None");
-  const [businessName, setBusinessName] = useState("None");
-  const [businessRegNo, setBusinessRegNo] = useState("None");
+  const [city, setCity] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [address, setAddress] = useState("");
+  const [businessName, setBusinessName] = useState("");
+  const [businessRegNo, setBusinessRegNo] = useState("");
 
   const validationSchema = Yup.object().shape({
     password: Yup.string()
@@ -229,6 +229,7 @@ function onSubmitdetails(data) {
                 placeholder="Please input business name"
                 {...register2('BusinessName')}
               />
+              <div className="text-red-600">{errors2.BusinessName?.message}</div>
             </div>
             <div className="md:w-72 flex flex-col md:ml-6 md:mt-0 mt-4">
               <label className="text-base font-semibold leading-none text-gray-800">
@@ -244,6 +245,7 @@ function onSubmitdetails(data) {
                 placeholder="Please input registration number"
                 {...register2('RegNo')}
               />
+              <div className="text-red-600">{errors2.RegNo?.message}</div>
             </div>
           </div>
           <div className="md:flex items-center mt-4">
@@ -261,6 +263,7 @@ function onSubmitdetails(data) {
                 placeholder="Please input address"
                 {...register2('Address')}
               />
+              <div className="text-red-600">{errors2.Address?.message}</div>
             </div>
           </div>
           <div className="md:flex items-center mt-4">
@@ -288,6 +291,7 @@ function onSubmitdetails(data) {
                 onChange={onChangeCity}
                 className="text-base leading-none text-gray-900 p-3 focus:oultine-none focus:border-orange mt-4 bg-gray-100 border rounded border-gray-200"
                 placeholder="Please input city" {...register2('City')}></input>
+                <div className="text-red-600">{errors2.City?.message}</div>
             </div>
             
             <div className="md:w-40 flex flex-col md:ml-6 md:mt-0 mt-4">
@@ -304,6 +308,7 @@ function onSubmitdetails(data) {
                 placeholder="Your postal code"
                 {...register2('PostalCode')}
               />
+              <div className="text-red-600">{errors2.PostalCode?.message}</div>
             </div>
           </div>
 
