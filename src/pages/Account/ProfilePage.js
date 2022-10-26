@@ -59,8 +59,20 @@ const formOptions2 = { resolver: yupResolver(validationSchema2) };
 const { register, handleSubmit, reset, formState:{errors} } = useForm(formOptions);
 const { register:register2, handleSubmit:handleSubmit2, reset:reset2, formState:{errors:errors2} } = useForm(formOptions2);
 
+
+function onSubmit(data) {
+  // display form data on success
+  alert(JSON.stringify(data, null, 4));
+  return false;
+}
+
+function onSubmitdetails(data) {
+  // display form data on success
+  alert(JSON.stringify(data, null, 4));
+  return false;
+}
+
   const makeVerifyRequest = () => {
-    alert(JSON.stringify(data, null, 4));
     axios({
       method: 'POST',
       headers: {
@@ -148,7 +160,7 @@ const { register:register2, handleSubmit:handleSubmit2, reset:reset2, formState:
             <InfoRoundedIcon className="text-sm text-red-400 cursor-pointer" />
           </div>
 
-          <form key={1}>
+          <form key={1} onSubmit={handleSubmit(onSubmit)}>
           <div className="md:flex items-center mt-8">
             <div className="md:w-72 flex flex-col md:mt-0 mt-4">
               <label className="text-base font-semibold leading-none text-gray-800">
@@ -201,7 +213,7 @@ const { register:register2, handleSubmit:handleSubmit2, reset:reset2, formState:
           </div>
           </form>
           
-          <form key={2}>
+          <form key={2} onSubmit={handleSubmit2(onSubmitdetails)}>
           <div className="md:flex items-center mt-8">
             <div className="md:w-72 flex flex-col md:mt-0 mt-4">
               <label className="text-base font-semibold leading-none text-gray-800">
