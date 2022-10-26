@@ -3,6 +3,13 @@ import Logo from "../../assets/NavLogo.png";
 import { Link, NavLink } from "react-router-dom";
 
 function NavBar() {
+
+  const logout = () => {
+    window.localStorage.removeItem('accessToken');
+    window.localStorage.removeItem('refreshToken');
+    window.location.href = 'https://transpikland.onrender.com';
+  }
+
   return (
     <div>
       <div className="bg-orange h-48 w-full">
@@ -10,7 +17,6 @@ function NavBar() {
           <div className="flex items-center justify-between">
             <div className="flex flex-row items-end">
               <img src={Logo} alt="company logo" className="h-20"></img>
-              <p className="text-white px-4">Anton(Pvt) Ltd</p>
             </div>
             <div className="hidden lg:flex items-center">
               <NavLink to="orders" className="menu-selection">
@@ -25,7 +31,7 @@ function NavBar() {
               <NavLink to="charges" className="menu-selection">
                 Config
               </NavLink>
-              <NavLink to="login" className="btn">
+              <NavLink to="login" className="btn" onClick={logout}>
                 Log out
               </NavLink>
             </div>
