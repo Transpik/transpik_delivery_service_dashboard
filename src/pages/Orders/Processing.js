@@ -13,8 +13,10 @@ function ViewProcessingOrders() {
   const [assignDriver, setAssignDriver] = useState(null);
   const [orders, setOrders] = useState([]);
   const [drivers, setDriver] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
+  const refreshOrders = () => {
+    setIsLoading(true);
     axios({
       method: 'GET',
       headers: {
@@ -44,6 +46,12 @@ function ViewProcessingOrders() {
     }).catch(error => {
       console.log(error);
     })
+
+    setIsLoading(false);
+  }
+
+  useEffect(() => {
+    refreshOrders();
   }, []);
 
   
@@ -114,6 +122,10 @@ function ViewProcessingOrders() {
                   </thead>
 
                   <tbody className="text-sm divide-y divide-gray-100">
+                    {
+                      isLoading ? <div className="w-full flex justify-center"><div className="lds-ring"><div></div><div></div><div></div><div></div></div></div> : undefined
+                    }
+
                     {
                       orders.map(order => {
                         return (<Raw
