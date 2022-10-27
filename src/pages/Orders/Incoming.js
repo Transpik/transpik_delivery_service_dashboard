@@ -47,6 +47,7 @@ function ViewIncomingOrders() {
   }
 
   const refreshOrders = () => {
+    setIsLoading(true);
     axios({
       method: 'GET',
       headers: {
@@ -58,6 +59,7 @@ function ViewIncomingOrders() {
       withCredentials: true,
       }).then(response => {
         setOrders(response.data.data.orders);
+        setIsLoading(false);
       }).catch(error => {
         console.log(error);
       })
@@ -130,7 +132,7 @@ function ViewIncomingOrders() {
 
                   <tbody className="text-sm divide-y divide-gray-100">
                     {
-                      isLoading ? <div>Fetching Data...</div> : undefined
+                      isLoading ? <div className="w-full flex justify-center"><div className="lds-ring"><div></div><div></div><div></div><div></div></div></div> : undefined
                     }
                     
                     {
@@ -157,7 +159,7 @@ function ViewIncomingOrders() {
                             </div>
                           </td>
                           <td className="pl-2 pr-4 py-6">
-                            <button value={order._id} onClick={moveToProcessing}>Move to processing</button>
+                            <button className="bg-orange p-1 text-white" value={order._id} onClick={moveToProcessing}>Move to processing</button>
                           </td>
                         </tr>
                         );
