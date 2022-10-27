@@ -32,7 +32,7 @@ function ViewIncomingOrders() {
     })
   }
 
-  useEffect(() => {
+  const refreshOrders = () => {
     axios({
       method: 'GET',
       headers: {
@@ -42,13 +42,19 @@ function ViewIncomingOrders() {
       url: 'https://transpikapi.onrender.com/orders/incomming',
       mode: 'cors',
       withCredentials: true,
-    }).then(response => {
-      setOrders(response.data.data.orders);
-    }).catch(error => {
-      console.log(error);
-    })
-  }, []);
+      }).then(response => {
+        setOrders(response.data.data.orders);
+      }).catch(error => {
+        console.log(error);
+      })
+  }
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      refreshOrders();
+    }, 300);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div>
