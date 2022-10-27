@@ -14,17 +14,19 @@ function ViewIncomingOrders() {
   const [orders, setOrders] = useState([]);
   const [indicator, setIndicator] = useState(false);
   const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
 
-  const callToIndicator = (message) => {
+  /*const callToIndicator = (message) => {
     setIndicator(true);
     setMessage(message);
     setTimeout(() => {
       setIndicator(false);
     }, 100);
-  }
+  }*/
 
   const moveToProcessing = (event) => {
+    setIsLoading(true);
     axios({
       method: 'PATCH',
       headers: {
@@ -39,9 +41,8 @@ function ViewIncomingOrders() {
       }
     }).then(response => {
       refreshOrders();
-      callToIndicator(order_id+" moved to processing stage");
+      setIsLoading(false);
     }).catch(error => {
-      callToIndicator(error.message);
     })
   }
 
@@ -128,6 +129,9 @@ function ViewIncomingOrders() {
                   </thead>
 
                   <tbody className="text-sm divide-y divide-gray-100">
+                    {
+                      isLoading ? <div>Fetching Data...</div> : undefined
+                    }
                     
                     {
                       orders.map(order => {
