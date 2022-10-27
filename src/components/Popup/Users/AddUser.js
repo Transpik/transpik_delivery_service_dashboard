@@ -6,7 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
 import axios from "axios";
-const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NjY2OTc0NzEsImV4cCI6MTY2Njg3MDI3MSwiYXVkIjoiZGVsaXZlcnkiLCJpc3MiOiJodHRwczovL3RyYW5zcGlrYXBpLm9ucmVuZGVyLmNvbSIsInN1YiI6IjYzNTdjODAyZThkNzZhOWE3N2JiYmEyMCJ9.0S2y5CkzM2K3qMUYfgCPb8aEftKS7QQNnmH5ux5xieA';
+const accessToken = window.localStorage.getItem('accessToken');
 
 function AddUser(props) {
 
@@ -80,7 +80,7 @@ function AddUser(props) {
               'Content-Type': 'application/json',
               'Access-Token': accessToken
             },
-            url: 'http://localhost:8080/users/delivery_services/drivers',
+            url: 'https://transpikapi.onrender.com/users/delivery_services/drivers',
             mode: 'cors',
             withCredentials: true,
             data: {
