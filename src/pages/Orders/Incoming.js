@@ -26,7 +26,7 @@ function ViewIncomingOrders() {
         order_id: event.target.value
       }
     }).then(response => {
-      //
+      refreshOrders();
     }).catch(error => {
       console.log(error);
     })
@@ -50,10 +50,7 @@ function ViewIncomingOrders() {
   }
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      refreshOrders();
-    }, 300);
-    return () => clearInterval(interval);
+    refreshOrders();
   }, []);
 
   return (
