@@ -17,7 +17,7 @@ import ViewEarning from "./pages/Orders/Earning";
 import Login from "./pages/Login";
 import axios from "axios";
 
-let refreshToken = window.localStorage.getItem('refeshToken');
+let refreshToken = window.localStorage.getItem('refreshToken');
 const params = new URLSearchParams(window.location.search);
 
 if(!refreshToken) {
