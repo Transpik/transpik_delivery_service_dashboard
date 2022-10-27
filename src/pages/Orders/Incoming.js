@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BorderColorRoundedIcon from "@mui/icons-material/BorderColorRounded";
 import DeleteOutlineRoundedIcon from "@mui/icons-material/DeleteOutlineRounded";
+import Indicator from "../../components/Indicator/Indicator";
 
 import axios from "axios";
 const accessToken = window.localStorage.getItem('accessToken');
@@ -11,6 +12,17 @@ const accessToken = window.localStorage.getItem('accessToken');
 function ViewIncomingOrders() {
 
   const [orders, setOrders] = useState([]);
+  const [indicator, setIndicator] = useState(false);
+  const [message, setMessage] = useState('');
+
+
+  const callToIndicator = (message) => {
+    setIndicator(true);
+    setMessage(message);
+    setTimeout(() => {
+      setIndicator(false);
+    }, 100);
+  }
 
   const moveToProcessing = (event) => {
     axios({
@@ -27,8 +39,9 @@ function ViewIncomingOrders() {
       }
     }).then(response => {
       refreshOrders();
+      callToIndicator(order_id+" moved to processing stage");
     }).catch(error => {
-      console.log(error);
+      callToIndicator(error.message);
     })
   }
 
@@ -55,6 +68,7 @@ function ViewIncomingOrders() {
 
   return (
     <div>
+      {(indicator)? <Indicator message={message}></Indicator> : undefined }
       <div className="container-position">
         <div className="container-style">
           <div className="md:w-96 flex items-center">
